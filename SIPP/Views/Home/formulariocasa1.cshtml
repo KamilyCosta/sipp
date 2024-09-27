@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Agendamento Casa 1";
+}
+
+<div class="containerFF ">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="~/img/casa3.png" alt="Imagem do Imóvel 3">
+                <div class="card-body">
+                    <h5 class="card-title">Agendamento de Visita</h5>
+                    <div class="info-imovel">
+                        <p><i class="bi bi-house-door-fill"></i> 2 dormitórios / 1 suíte</p>
+                        <p><i class="bi bi-car-front-fill"></i> 2 vagas</p>
+                        <p><i class="bi bi-rulers"></i> 480 m²</p>
+                        <p><i class="bi bi-arrows-fullscreen"></i> 320 m² de área construída</p>
+                        <p><i class="bi bi-cash-stack"></i> Aceita financiamento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="details">
+                        <i class="bi bi-geo-alt-fill"></i> Rua Pedro Segundo, Jardim dos Ipês, Barra Bonita - SP
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <button class="pricee-buttoon" type="button">VENDA</button>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="pricee-button" value="R$ 415.000,00" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="nomeCompleto">Nome completo</label>
+                        <input type="text" class="form-control" id="nomeCompleto" placeholder="Digite seu nome e sobrenome">
+                    </div>
+                    <div class="form-group">
+                        <label for="corretor">Corretor</label>
+                        <select class="form-control" id="corretor">
+                            <option value="">Selecione o corretor</option>
+                            <option value="corretor1">Beatriz de Carla</option>
+                            <option value="corretor2">Carlos Ricardo</option>
+                            <option value="corretor3">Isabela de Lima</option>
+                            <option value="corretor4">Roberto Augusto</option>
+                        </select>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label for="data">Data</label>
+                            <input type="date" class="form-control" id="data">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="hora">Hora</label>
+                            <input type="time" class="form-control" id="hora">
+                        </div>
+
+                        <button class="btn-conheceer" type="button">Agendar</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

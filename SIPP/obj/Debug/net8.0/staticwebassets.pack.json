@@ -1,0 +1,529 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SIPP.bundle.scp.css",
+      "PackagePath": "staticwebassets\\SIPP.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\18.png",
+      "PackagePath": "staticwebassets\\img\\18.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\188.jpg",
+      "PackagePath": "staticwebassets\\img\\188.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\1888.jpg",
+      "PackagePath": "staticwebassets\\img\\1888.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\19.png",
+      "PackagePath": "staticwebassets\\img\\19.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\199.jpg",
+      "PackagePath": "staticwebassets\\img\\199.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\1999.jpg",
+      "PackagePath": "staticwebassets\\img\\1999.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\20.png",
+      "PackagePath": "staticwebassets\\img\\20.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\200.jpg",
+      "PackagePath": "staticwebassets\\img\\200.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\2000.jpg",
+      "PackagePath": "staticwebassets\\img\\2000.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\21.png",
+      "PackagePath": "staticwebassets\\img\\21.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\211.jpg",
+      "PackagePath": "staticwebassets\\img\\211.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\2111.jpg",
+      "PackagePath": "staticwebassets\\img\\2111.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\22.png",
+      "PackagePath": "staticwebassets\\img\\22.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\222.jpg",
+      "PackagePath": "staticwebassets\\img\\222.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\2222.jpg",
+      "PackagePath": "staticwebassets\\img\\2222.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\23.png",
+      "PackagePath": "staticwebassets\\img\\23.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\233.jpg",
+      "PackagePath": "staticwebassets\\img\\233.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\2333.jpg",
+      "PackagePath": "staticwebassets\\img\\2333.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\24.png",
+      "PackagePath": "staticwebassets\\img\\24.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\244.jpg",
+      "PackagePath": "staticwebassets\\img\\244.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\2444.jpg",
+      "PackagePath": "staticwebassets\\img\\2444.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\25.png",
+      "PackagePath": "staticwebassets\\img\\25.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\255.jpg",
+      "PackagePath": "staticwebassets\\img\\255.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\2555.jpg",
+      "PackagePath": "staticwebassets\\img\\2555.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\26.png",
+      "PackagePath": "staticwebassets\\img\\26.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\266.jpg",
+      "PackagePath": "staticwebassets\\img\\266.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\2666.jpg",
+      "PackagePath": "staticwebassets\\img\\2666.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\66.jpg",
+      "PackagePath": "staticwebassets\\img\\66.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\72.jpg",
+      "PackagePath": "staticwebassets\\img\\72.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\77.jpg",
+      "PackagePath": "staticwebassets\\img\\77.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\banh8.jpg",
+      "PackagePath": "staticwebassets\\img\\banh8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\banheiro2.jpg",
+      "PackagePath": "staticwebassets\\img\\banheiro2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\banheiro5.jpg",
+      "PackagePath": "staticwebassets\\img\\banheiro5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\casa1.png",
+      "PackagePath": "staticwebassets\\img\\casa1.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\casa2.png",
+      "PackagePath": "staticwebassets\\img\\casa2.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\casa3.png",
+      "PackagePath": "staticwebassets\\img\\casa3.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\casa4.png",
+      "PackagePath": "staticwebassets\\img\\casa4.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\casa5.png",
+      "PackagePath": "staticwebassets\\img\\casa5.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\casa6.png",
+      "PackagePath": "staticwebassets\\img\\casa6.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\casa7.png",
+      "PackagePath": "staticwebassets\\img\\casa7.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\casa8.png",
+      "PackagePath": "staticwebassets\\img\\casa8.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\casa9.png",
+      "PackagePath": "staticwebassets\\img\\casa9.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\comodo1.jpg",
+      "PackagePath": "staticwebassets\\img\\comodo1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\correto1.png",
+      "PackagePath": "staticwebassets\\img\\correto1.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\corretor2.png",
+      "PackagePath": "staticwebassets\\img\\corretor2.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\corretor3.png",
+      "PackagePath": "staticwebassets\\img\\corretor3.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\corretor4.png",
+      "PackagePath": "staticwebassets\\img\\corretor4.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\cozinha1.jpg",
+      "PackagePath": "staticwebassets\\img\\cozinha1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\escad9.jpg",
+      "PackagePath": "staticwebassets\\img\\escad9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\fotohome2.jpg",
+      "PackagePath": "staticwebassets\\img\\fotohome2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\fotohome3.jpg",
+      "PackagePath": "staticwebassets\\img\\fotohome3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\fotoqhome1.jpg",
+      "PackagePath": "staticwebassets\\img\\fotoqhome1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\logo.png",
+      "PackagePath": "staticwebassets\\img\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\pexels-divinetechygirl-1181396.jpg",
+      "PackagePath": "staticwebassets\\img\\pexels-divinetechygirl-1181396.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\pexels-fauxels-3183150.jpg",
+      "PackagePath": "staticwebassets\\img\\pexels-fauxels-3183150.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\pexels-kindelmedia-7979439.jpg",
+      "PackagePath": "staticwebassets\\img\\pexels-kindelmedia-7979439.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\piscina3.jpg",
+      "PackagePath": "staticwebassets\\img\\piscina3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\sala2.jpg",
+      "PackagePath": "staticwebassets\\img\\sala2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\sala3.jpg",
+      "PackagePath": "staticwebassets\\img\\sala3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\sala4.jpg",
+      "PackagePath": "staticwebassets\\img\\sala4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\sala5.jpg",
+      "PackagePath": "staticwebassets\\img\\sala5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\sala9.jpg",
+      "PackagePath": "staticwebassets\\img\\sala9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\sla6.jpg",
+      "PackagePath": "staticwebassets\\img\\sla6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\sla8.jpg",
+      "PackagePath": "staticwebassets\\img\\sla8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\thumbnail_image.png",
+      "PackagePath": "staticwebassets\\img\\thumbnail_image.png"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\img\\u4.jpg",
+      "PackagePath": "staticwebassets\\img\\u4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SIPP.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.SIPP.props",
+      "PackagePath": "build\\SIPP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.SIPP.props",
+      "PackagePath": "buildMultiTargeting\\SIPP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.SIPP.props",
+      "PackagePath": "buildTransitive\\SIPP.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

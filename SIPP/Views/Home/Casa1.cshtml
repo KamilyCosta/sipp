@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Casa 3";
+}
+<div class="containerr mt-4">
+    <h1>Detalhes do Imóvel:</h1>
+    <div class="detalhes-container">
+        <!-- Carrossel de imagens -->
+        <div id="carouselImovel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="~/img/casa3.png" class="d-block w-100" alt="Imagem do Imóvel 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/img/piscina3.jpg" class="d-block w-100" alt="Imagem do Imóvel 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="~/img/sala3.jpg" class="d-block w-100" alt="Imagem do Imóvel 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselImovel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselImovel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <!-- Miniaturas abaixo do carrossel -->
+            <div class="thumbnail-container">
+                <img src="~/img/casa3.png" data-bs-target="#carouselImovel" data-bs-slide-to="0" class="active" alt="Miniatura 1">
+                <img src="~/img/piscina3.jpg" data-bs-target="#carouselImovel" data-bs-slide-to="1" alt="Miniatura 2">
+                <img src="~/img/sala3.jpg" data-bs-target="#carouselImovel" data-bs-slide-to="2" alt="Miniatura 3">
+            </div>
+        </div>
+
+        <!-- Informações do imóvel -->
+        <div class="info-imovel">
+            <p><i class="bi bi-geo-alt-fill"></i> Rua Pedro Segundo, Jardim dos Ipês, Barra Bonita - SP</p>
+            <p><i class="bi bi-house-door-fill"></i> 2 dormitórios / 1 suíte</p>
+            <p><i class="bi bi-car-front-fill"></i> 2 vagas</p>
+            <p><i class="bi bi-rulers"></i> 480 m²</p>
+            <p><i class="bi bi-arrows-fullscreen"></i> 320 m² de área construída</p>
+            <p><i class="bi bi-cash-stack"></i> Aceita financiamento</p>
+            <div class="display-fex">
+                <a class="btn-conhecer" asp-area="" asp-controller="Home" asp-action="formulariocasa1">Conhecer imóvel</a>
+               
+                <button class="pricee-button">R$ 415.000,00</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
