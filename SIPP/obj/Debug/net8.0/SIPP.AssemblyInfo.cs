@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SIPP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5292c829445c9e7095e2c95a298f4380e36d8018")]
 [assembly: System.Reflection.AssemblyProductAttribute("SIPP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SIPP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

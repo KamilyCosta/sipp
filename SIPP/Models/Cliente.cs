@@ -1,9 +1,10 @@
-﻿namespace SIPP.Models
-{
+﻿using Microsoft.EntityFrameworkCore;
 
+namespace SIPP.Models
+{
     public class Cliente
     {
-        public Guid IdCliente { get; set; }
+        public Guid ClienteId { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
         public int Telefone { get; set; }
@@ -14,6 +15,8 @@
         public string rua { get; set; }
         public string complemento { get; set; }
         public int numero { get; set; }
+
+        public string campoTeste { get; set; } 
     }
 }
 

@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\data\\identitydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\data\\identitydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\models\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\models\\imoveis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\models\\imoveis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Models\\Cliente.cs",
+              "RelativeDocumentMoniker": "SIPP\\Models\\Cliente.cs",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Models\\Cliente.cs",
+              "RelativeToolTip": "SIPP\\Models\\Cliente.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T18:20:27.079Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "SIPP\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "SIPP\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T18:20:12.618Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Imoveis.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Models\\Imoveis.cs",
+              "RelativeDocumentMoniker": "SIPP\\Models\\Imoveis.cs",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Models\\Imoveis.cs",
+              "RelativeToolTip": "SIPP\\Models\\Imoveis.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T17:58:38.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "SIPP\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "SIPP\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBUAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:40:26.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IdentityDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Data\\IdentityDbContext.cs",
+              "RelativeDocumentMoniker": "SIPP\\Data\\IdentityDbContext.cs",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Data\\IdentityDbContext.cs",
+              "RelativeToolTip": "SIPP\\Data\\IdentityDbContext.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAuwAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T16:03:00.29Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

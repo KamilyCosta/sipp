@@ -19,7 +19,7 @@ namespace SIPP.Controllers
             return View();
         }
 
-        public IActionResult Vendas()
+        public IActionResult Imoveis()
         {
             return View();
         }
@@ -29,12 +29,6 @@ namespace SIPP.Controllers
         {
             return View();
         }
-        
-        public IActionResult Locacao()
-        {
-            return View();
-        }
-
         public IActionResult Corretores()
         {
             return View();
