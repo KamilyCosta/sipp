@@ -18,21 +18,7 @@ namespace SIPP.Controllers
         {
             return View();
         }
-
-        public IActionResult Imoveis()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Corretores, Admin")]
-        public IActionResult Agendamento()
-        {
-            return View();
-        }
-        public IActionResult Corretores()
-        {
-            return View();
-        }
+       
 
         public IActionResult FaleConosco()
         {
@@ -44,11 +30,7 @@ namespace SIPP.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Cliente, Admin")]
-        public IActionResult formulariocasa1()
-        {
-            return View();
-        }
+
        
 
 

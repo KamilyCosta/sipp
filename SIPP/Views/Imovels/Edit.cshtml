@@ -1,0 +1,66 @@
+﻿@model SIPP.Models.Imovel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Imovel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ImovelId" />
+            <div class="form-group">
+                <label asp-for="Endereco" class="control-label"></label>
+                <input asp-for="Endereco" class="form-control" />
+                <span asp-validation-for="Endereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="cidade" class="control-label"></label>
+                <input asp-for="cidade" class="form-control" />
+                <span asp-validation-for="cidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QntDormitorios" class="control-label"></label>
+                <input asp-for="QntDormitorios" class="form-control" />
+                <span asp-validation-for="QntDormitorios" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QntGarragem" class="control-label"></label>
+                <input asp-for="QntGarragem" class="form-control" />
+                <span asp-validation-for="QntGarragem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tamanho" class="control-label"></label>
+                <input asp-for="Tamanho" class="form-control" />
+                <span asp-validation-for="Tamanho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TamanhoAreaContuida" class="control-label"></label>
+                <input asp-for="TamanhoAreaContuida" class="form-control" />
+                <span asp-validation-for="TamanhoAreaContuida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MetodoPagamento" class="control-label"></label>
+                <input asp-for="MetodoPagamento" class="form-control" />
+                <span asp-validation-for="MetodoPagamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

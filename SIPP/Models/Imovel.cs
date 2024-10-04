@@ -3,7 +3,7 @@
 namespace SIPP.Models
 {
    
-    public class Imoveis
+    public class Imovel
     {
         public Guid ImovelId { get; set; }
         public string Endereco { get; set; }
@@ -14,5 +14,8 @@ namespace SIPP.Models
         public string TamanhoAreaContuida { get; set; }
         public string MetodoPagamento { get; set; }
         public decimal Valor { get; set; }
+
+        public ICollection<RelacionandoImoATipo> Relacionamentos { get; set; } = new List<RelacionandoImoATipo>();
+
     }
 }

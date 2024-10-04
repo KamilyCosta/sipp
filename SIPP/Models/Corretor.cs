@@ -1,8 +1,8 @@
 ﻿namespace SIPP.Models
 {
-    public class Corretores
+    public class Corretor
     {
-        public Guid CorretoresId { get; set; }
+        public Guid CorretorId { get; set; }
         public string Nome { get; set; }
         public string TemDeTrabalho { get; set; }
         public string CRECI { get; set; }

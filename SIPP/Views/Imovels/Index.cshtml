@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SIPP.Models.Imovel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Endereco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QntDormitorios)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QntGarragem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tamanho)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TamanhoAreaContuida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MetodoPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QntDormitorios)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QntGarragem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tamanho)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TamanhoAreaContuida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetodoPagamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ImovelId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ImovelId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ImovelId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

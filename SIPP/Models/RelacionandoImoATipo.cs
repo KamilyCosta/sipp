@@ -2,7 +2,10 @@
 {
     public class RelacionandoImoATipo
     {
-        public Guid TipoTransId { get; set; }
+        public Guid TipodeTransacaoId { get; set; }
         public Guid ImovelId {get; set;}
+
+        
     }
+
 }
