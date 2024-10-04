@@ -7,47 +7,42 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Criar novo corretor</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TemDeTrabalho)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CRECI)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Telefone)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TemDeTrabalho)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CRECI)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Telefone)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CorretorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CorretorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CorretorId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="row justify-content-between  ">
+    @foreach (var item in Model)
+    {
+
+        //string foto;
+        //  @if (item.Imagem.Length > 0)
+        // {
+        //    foto = $"\\img\\{item.Imagem}";
+        // }
+        // else
+        // {
+        //   foto = $"\\img\\foto.png";
+        // }
+
+        //....
+
+        <div class="card justify-content-between m-3" style="width: 18rem; ">
+
+
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Nome)</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.TemDeTrabalho)</li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.CRECI)</li>
+                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Telefone)</li>
+                 
+
+                </ul>
+
+
+            </div>
+        </div>
+    }
+</div>
+
+

@@ -4,74 +4,42 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+
+<h1>Imóveis</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Adicionar Imóvel</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Endereco)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cidade)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.QntDormitorios)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.QntGarragem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tamanho)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TamanhoAreaContuida)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MetodoPagamento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Valor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Endereco)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QntDormitorios)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QntGarragem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tamanho)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TamanhoAreaContuida)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MetodoPagamento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Valor)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ImovelId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ImovelId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ImovelId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+    <div class="house-container ">
+    @foreach (var item in Model)
+    {
+
+
+        <div class="card justify-content-center m-3" style="width: 18rem; ">
+           
+            
+            <div class="card-body">
+                    <img src="@item.Imagem" />
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Endereco)</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.cidade)</li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.QntDormitorios) </li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.QntGarragem)</li>
+                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Tamanho)</li>
+                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.TamanhoAreaContuida)</li>
+                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.MetodoPagamento)</li>
+                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.TipoDeServico)</li>
+
+                </ul>
+                <!-- Button trigger modal -->
+                <button type="button" class="price-button" data-bs-toggle="modal" data-bs-target="#janelaCentralizada">
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </button>
+
+            </div>
+        </div>
+    }
+</div>
+

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SIPP.Data;
 
@@ -11,9 +12,11 @@ using SIPP.Data;
 namespace SIPP.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241004132755_Alterandoo")]
+    partial class Alterandoo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,10 +135,6 @@ namespace SIPP.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Imagem")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("MetodoPagamento")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -156,10 +155,6 @@ namespace SIPP.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TipoDeServico")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<decimal>("Valor")
                         .HasColumnType("decimal(18,2)");
 
@@ -170,6 +165,67 @@ namespace SIPP.Migrations
                     b.HasKey("ImovelId");
 
                     b.ToTable("tbImovel", (string)null);
+                });
+
+            modelBuilder.Entity("SIPP.Models.RelacionandoImoATipo", b =>
+                {
+                    b.Property<Guid>("RelacionandoImoATipoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ImovelId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("TipodeTransacaoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("RelacionandoImoATipoId");
+
+                    b.HasIndex("ImovelId");
+
+                    b.HasIndex("TipodeTransacaoId");
+
+                    b.ToTable("tbRelacionandoImoATipo", (string)null);
+                });
+
+            modelBuilder.Entity("SIPP.Models.TipodeTransacao", b =>
+                {
+                    b.Property<Guid>("TipodeTransacaoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TipodeTransacaoId");
+
+                    b.ToTable("tbTipodeTransacao", (string)null);
+                });
+
+            modelBuilder.Entity("SIPP.Models.RelacionandoImoATipo", b =>
+                {
+                    b.HasOne("SIPP.Models.Imovel", null)
+                        .WithMany("Relacionamentos")
+                        .HasForeignKey("ImovelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SIPP.Models.TipodeTransacao", null)
+                        .WithMany("Relacionamentos")
+                        .HasForeignKey("TipodeTransacaoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("SIPP.Models.Imovel", b =>
+                {
+                    b.Navigation("Relacionamentos");
+                });
+
+            modelBuilder.Entity("SIPP.Models.TipodeTransacao", b =>
+                {
+                    b.Navigation("Relacionamentos");
                 });
 #pragma warning restore 612, 618
         }

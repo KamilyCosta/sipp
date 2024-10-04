@@ -15,7 +15,10 @@ namespace SIPP.Models
         public string MetodoPagamento { get; set; }
         public decimal Valor { get; set; }
 
-        public ICollection<RelacionandoImoATipo> Relacionamentos { get; set; } = new List<RelacionandoImoATipo>();
+        public string Imagem { get; set; }
+
+        public string TipoDeServico { get; set; }
+
 
     }
 }

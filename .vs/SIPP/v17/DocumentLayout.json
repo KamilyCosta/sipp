@@ -3,12 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\models\\relacionandoimoatipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\models\\relacionandoimoatipo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\views\\imovels\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\views\\imovels\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\views\\imovels\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\views\\imovels\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\views\\corretors\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\views\\corretors\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\models\\imovel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\models\\imovel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\controllers\\imovelscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\controllers\\imovelscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp\\sipp\\sipp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,28 +38,80 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "SIPP\\Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "SIPP\\Data\\ApplicationDbContext.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAQwBoAAAAAAAAA",
+              "DocumentIndex": 4,
+              "Title": "ImovelsController.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Controllers\\ImovelsController.cs",
+              "RelativeDocumentMoniker": "SIPP\\Controllers\\ImovelsController.cs",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Controllers\\ImovelsController.cs",
+              "RelativeToolTip": "SIPP\\Controllers\\ImovelsController.cs",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAcwHgAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T13:13:33.126Z",
+              "WhenOpened": "2024-10-04T17:54:43.785Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RelacionandoImoATipo.cs",
-              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Models\\RelacionandoImoATipo.cs",
-              "RelativeDocumentMoniker": "SIPP\\Models\\RelacionandoImoATipo.cs",
-              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Models\\RelacionandoImoATipo.cs",
-              "RelativeToolTip": "SIPP\\Models\\RelacionandoImoATipo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAIAAAA",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Views\\Imovels\\Create.cshtml",
+              "RelativeDocumentMoniker": "SIPP\\Views\\Imovels\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Views\\Imovels\\Create.cshtml",
+              "RelativeToolTip": "SIPP\\Views\\Imovels\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADsAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-04T17:52:56.599Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Imovel.cs",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Models\\Imovel.cs",
+              "RelativeDocumentMoniker": "SIPP\\Models\\Imovel.cs",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Models\\Imovel.cs",
+              "RelativeToolTip": "SIPP\\Models\\Imovel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T13:13:16.293Z",
+              "WhenOpened": "2024-10-04T17:04:09.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "SIPP\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "SIPP\\wwwroot\\css\\site.css",
+              "ViewState": "AQIAAOcAAAAAAAAAAAAAAOoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-04T16:55:15.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Views\\Corretors\\Index.cshtml",
+              "RelativeDocumentMoniker": "SIPP\\Views\\Corretors\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Views\\Corretors\\Index.cshtml",
+              "RelativeToolTip": "SIPP\\Views\\Corretors\\Index.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-04T16:39:39.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Views\\Imovels\\Index.cshtml",
+              "RelativeDocumentMoniker": "SIPP\\Views\\Imovels\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\Views\\Imovels\\Index.cshtml",
+              "RelativeToolTip": "SIPP\\Views\\Imovels\\Index.cshtml",
+              "ViewState": "AQIAAAcAAAAAAAAAAAArwBMAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-04T16:06:34.258Z",
               "EditorCaption": ""
             }
           ]
