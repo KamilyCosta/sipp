@@ -12,9 +12,9 @@ namespace SIPP.Controllers
 {
     public class AgendamentoesController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly SIPPDbContext _context;
 
-        public AgendamentoesController(ApplicationDbContext context)
+        public AgendamentoesController(SIPPDbContext context)
         {
             _context = context;
         }

@@ -11,35 +11,65 @@
     <a asp-action="Create">Adicionar Imóvel</a>
 </p>
 
-
-    <div class="house-container ">
+<div class="house-container">
     @foreach (var item in Model)
     {
-
-
-        <div class="card justify-content-center m-3" style="width: 18rem; ">
-           
-            
+        <div class="card justify-content-center m-3" style="width: 18rem;">
             <div class="card-body">
-                    <img src="@item.Imagem" />
                 <h5 class="card-title">@Html.DisplayFor(modelItem => item.Endereco)</h5>
+
+                <!-- Carrossel de Imagens -->
+                @if (item.Imagens != null && item.Imagens.Any())
+                {
+                    <div id="carousel-@item.ImovelId" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            @for (int i = 0; i < item.Imagens.Count; i++)
+                            {
+                                var activeClass = (i == 0) ? "active" : "";
+                                <div class="carousel-item @activeClass">
+                                    <img src="@Url.Content(item.Imagens[i].Url)" style="width: 300px; height: 200px; object-fit: cover;" class="d-block carousel-img" alt="Imagem de @item.Endereco">
+                                </div>
+                            }
+                        </div>
+                        <a class="carousel-control-prev" href="#carousel-@item.ImovelId" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Anterior</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carousel-@item.ImovelId" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Próximo</span>
+                        </a>
+                    </div>
+                }
+
+
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.cidade)</li>
-                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.QntDormitorios) </li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.Cidade)</li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.QntDormitorios)</li>
                     <li class="list-group-item">@Html.DisplayFor(modelItem => item.QntGarragem)</li>
-                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Tamanho)</li>
-                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.TamanhoAreaContuida)</li>
-                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.MetodoPagamento)</li>
-                    <li class="list-group-item"> @Html.DisplayFor(modelItem => item.TipoDeServico)</li>
-
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.Tamanho)</li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.TamanhoAreaContuida)</li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.MetodoPagamento)</li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.Aluguel) Locação</li>
+                    <li class="list-group-item">@Html.DisplayFor(modelItem => item.Venda) Venda</li>
                 </ul>
-                <!-- Button trigger modal -->
-                <button type="button" class="price-button" data-bs-toggle="modal" data-bs-target="#janelaCentralizada">
-                    @Html.DisplayFor(modelItem => item.Valor)
-                </button>
 
+                <div class="justify-content-between m-2">
+                    <a asp-action="Details" asp-route-id="@item.ImovelId" class="price-button ">
+                    @Html.DisplayFor(modelItem => item.Valor)
+                </a>
+
+                <a asp-action="Edit" asp-route-id="@item.ImovelId" class="price-button">
+                        <i class="bi bi-pencil-square"></i>
+                </a>
+
+                <a asp-action="Delete" asp-route-id="@item.ImovelId" class="price-button">
+                        <i class="bi bi-trash3" ></i>
+                </a>
+               </div>
             </div>
         </div>
     }
 </div>
+
 

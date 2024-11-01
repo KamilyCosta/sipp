@@ -1,65 +1,65 @@
 ﻿@model SIPP.Models.Imovel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do Imóvel";
 }
 
-<h1>Details</h1>
+<h1>Detalhes do Imóvel:</h1>
 
-<div>
-    <h4>Imovel</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Endereco)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Endereco)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.cidade)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cidade)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.QntDormitorios)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.QntDormitorios)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.QntGarragem)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.QntGarragem)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tamanho)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tamanho)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TamanhoAreaContuida)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TamanhoAreaContuida)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MetodoPagamento)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MetodoPagamento)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Valor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Valor)
-        </dd>
-    </dl>
+<div class="detalhes-container">
+    <div class="imagem-principal">
+        <!-- Carrossel de Imagens -->
+        <div id="carouselImovel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @foreach (var imagem in Model.Imagens)
+                {
+                    <div class="carousel-item @(imagem == Model.Imagens.First() ? "active" : "")">
+                        <img src="@imagem.Url" class="d-block w-100" alt="Imagem do Imóvel">
+                    </div>
+                }
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselImovel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselImovel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+            <!-- Miniaturas abaixo do carrossel -->
+            <div class="thumbnail-container">
+                @foreach (var imagem in Model.Imagens.Select((value, index) => new { value, index }))
+                {
+                    <img src="@imagem.value.Url" data-bs-target="#carouselImovel" data-bs-slide-to="@imagem.index" class="@(imagem.index == 0 ? "active" : "")" alt="Miniatura @imagem.index">
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="detalhes-informacoes">
+        <ul>
+            <li><i class="bi bi-geo-alt-fill"></i> @Html.DisplayFor(model => model.Endereco), @Html.DisplayFor(model => model.Cidade)</li>
+            <li><i class="bi bi-house-fill"></i> @Html.DisplayFor(model => model.QntDormitorios) dormitórios / 1 suíte</li>
+            <li><i class="bi bi-car-front-fill"></i> @Html.DisplayFor(model => model.QntGarragem) vagas</li>
+            <li><i class="bi bi-arrows-fullscreen"></i> @Html.DisplayFor(model => model.Tamanho) m²</li>
+            <li><i class="bi bi-square-fill"></i> @Html.DisplayFor(model => model.TamanhoAreaContuida) m² de área construída</li>
+            <li><i class="bi bi-cash"></i> @Html.DisplayFor(model => model.MetodoPagamento)</li>
+        </ul>
+
+        <div class="acoes">
+
+            <a href="@Url.Action("Create", "Pessoas")" class="btn btn-primary">Conhecer imóvel</a>
+            <span class="preco">Valor: @Html.DisplayFor(model => model.Valor)</span>
+        </div>
+    </div>
 </div>
+
+
+
+
+
+
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.ImovelId">Edit</a> |
     <a asp-action="Index">Back to List</a>

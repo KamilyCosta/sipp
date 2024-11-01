@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SIPP.Data;
+using Microsoft.EntityFrameworkCore;
 using SIPP.Models;
 using System.Diagnostics;
 
@@ -14,11 +16,15 @@ namespace SIPP.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index([FromServices] SIPPDbContext context) 
         {
-            return View();
+            var imoveis = await context.Imoveis
+                .OrderBy(i => i.ImovelId)
+                .Take(3)
+                .ToListAsync();
+
+            return View(imoveis);
         }
-       
 
         public IActionResult FaleConosco()
         {

@@ -6,22 +6,23 @@
 
 <h1>Edit</h1>
 
-<h4>Imovel</h4>
+<h4>Imóvel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ImovelId" />
+
             <div class="form-group">
                 <label asp-for="Endereco" class="control-label"></label>
                 <input asp-for="Endereco" class="form-control" />
                 <span asp-validation-for="Endereco" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="cidade" class="control-label"></label>
-                <input asp-for="cidade" class="form-control" />
-                <span asp-validation-for="cidade" class="text-danger"></span>
+                <label asp-for="Cidade" class="control-label"></label>
+                <input asp-for="Cidade" class="form-control" />
+                <span asp-validation-for="Cidade" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="QntDormitorios" class="control-label"></label>
@@ -53,14 +54,47 @@
                 <input asp-for="Valor" class="form-control" />
                 <span asp-validation-for="Valor" class="text-danger"></span>
             </div>
+
+            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <input asp-for="Venda" type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                <label asp-for="Venda" class="btn btn-outline-primary" for="btncheck1">Venda</label>
+
+                <input asp-for="Aluguel" type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                <label asp-for="Aluguel" class="btn btn-outline-primary" for="btncheck2">Aluguel</label>
+            </div>
+
+            <h5>Imagens Atuais</h5>
+            <div class="d-flex flex-wrap">
+                @if (Model.Imagens != null && Model.Imagens.Any())
+                {
+                    foreach (var imagem in Model.Imagens)
+                    {
+                        <div class="m-1 position-relative">
+                            <img src="@Url.Content(imagem.Url)" class="img-thumbnail" alt="Imagem de @Model.Endereco" style="width: 150px; height: auto;">
+                            <input type="checkbox" name="removerImagens" value="@imagem.ImagemId" class="position-absolute top-0 end-0" />
+                            <span class="badge bg-danger" style="cursor: pointer;" title="Remover imagem">X</span>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>Nenhuma imagem encontrada.</p>
+                }
+            </div>
+
+            <!-- Campo para adicionar novas imagens -->
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label>Adicionar Novas Imagens:</label>
+                <input type="file" name="novasImagens" multiple />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar à Lista</a>
 </div>
-

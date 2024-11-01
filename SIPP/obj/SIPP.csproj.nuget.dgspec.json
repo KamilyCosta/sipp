@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\SIPP.csproj": {}
+    "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\SIPP.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\SIPP.csproj": {
+    "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\SIPP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\SIPP.csproj",
+        "projectUniqueName": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\SIPP.csproj",
         "projectName": "SIPP",
-        "projectPath": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\SIPP.csproj",
+        "projectPath": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\SIPP.csproj",
         "packagesPath": "C:\\Users\\Aluno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Aluno\\Desktop\\SIPP\\SIPP\\SIPP\\obj\\",
+        "outputPath": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,31 +50,47 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "BootstrapBlazor.BootstrapIcon": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.6, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.6, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[8.0.6, )"
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[8.0.6, )"
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.5, )"
+              "version": "[8.0.6, )"
+            },
+            "bootstrap": {
+              "target": "Package",
+              "version": "[5.3.3, )"
             }
           },
           "imports": [
