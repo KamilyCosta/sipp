@@ -3,8 +3,8 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h1>Edit</h1>
+<div class="container mt-4"> 
+<h1>Editar</h1>
 
 <h4>Imóvel</h4>
 <hr />
@@ -90,11 +90,10 @@
 
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a asp-action="Index"> <i class="bi bi-x-circle btn-outline-prima "></i> </a>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Voltar à Lista</a>
 </div>
+

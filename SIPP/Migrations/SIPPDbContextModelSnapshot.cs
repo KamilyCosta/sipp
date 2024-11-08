@@ -238,15 +238,16 @@ namespace SIPP.Migrations
                     b.Property<TimeOnly>("HoraAge")
                         .HasColumnType("time");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid?>("ImovelId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("AgendamentoId");
 
                     b.HasIndex("ClienteId");
 
                     b.HasIndex("CorretorId");
+
+                    b.HasIndex("ImovelId");
 
                     b.ToTable("Agendamento");
                 });
@@ -460,9 +461,15 @@ namespace SIPP.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("SIPP.Models.Imovel", "Imovel")
+                        .WithMany()
+                        .HasForeignKey("ImovelId");
+
                     b.Navigation("Cliente");
 
                     b.Navigation("Corretor");
+
+                    b.Navigation("Imovel");
                 });
 
             modelBuilder.Entity("SIPP.Models.Imagem", b =>

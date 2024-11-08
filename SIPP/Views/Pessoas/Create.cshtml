@@ -5,10 +5,10 @@
     var IdDoMal = ViewData["AspNetUserId"];
 }
 
-<h1>Create</h1>
+<div class="container m-4">
+<h1>Cadastro</h1>
 
-<h4>Pessoa</h4>
-<hr />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" enctype="multipart/form-data">
@@ -88,12 +88,11 @@
          
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index"><i class="bi bi-x-circle btn-outline-prima "></i></a>
             </div>
         </form>
     </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
+
 

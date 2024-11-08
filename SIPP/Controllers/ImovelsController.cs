@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,17 +15,21 @@ namespace SIPP.Controllers
     public class ImovelsController : Controller
     {
         private readonly SIPPDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public ImovelsController(SIPPDbContext context)
+        public ImovelsController(SIPPDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         // GET: Imovels
         public async Task<IActionResult> Index()
         {
             List<Imovel> imoveis = await _context.Imoveis.Include(i => i.Imagens).ToListAsync();
-          //  List<Imovel> imoveis2 = imoveis.FindAll(p => p.Endereco == "Teste10");
+           
+
+
             return View(imoveis);
         }
 

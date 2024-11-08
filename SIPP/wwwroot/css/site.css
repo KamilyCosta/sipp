@@ -232,6 +232,7 @@ footer {
 }
 
 
+
 .house-card {
     display: flex;
     flex-direction: column;
@@ -317,7 +318,7 @@ footer {
 
 
 .btn-conhecer {
-    background-color: #C59F46;
+    background-color: #a67d4d;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
@@ -584,7 +585,7 @@ input[type="date"], input[type="time"] {
 }
 
     .acoes .btn {
-        background-color: #d1b07e;
+        background-color: #C59F46;
         border: none;
         padding: 10px 20px;
         color: white;

@@ -21,6 +21,7 @@ namespace SIPP.Models
         public Guid CorretorId { get; set; }
         public Pessoa Corretor { get; set; }
 
+
     }
 }
 

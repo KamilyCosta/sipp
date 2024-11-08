@@ -4,50 +4,39 @@
     ViewData["Title"] = "Index";
 }
 
+<div class="container mt-4">
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn price-button">Adicionar agendamento</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DataAge)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HoraAge)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cliente)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Corretor)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DataAge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoraAge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cliente.PessoaId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Corretor.PessoaId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AgendamentoId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AgendamentoId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AgendamentoId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+           
+            <div class="card">
+                
+                <div class="card-body">
+                    <p><strong>Data:</strong> @Html.DisplayFor(modelItem => item.DataAge)</p>
+                    <p><strong>Hora:</strong> @Html.DisplayFor(modelItem => item.HoraAge)</p>
+                    <p><strong>Cliente:</strong> @Html.DisplayFor(modelItem => item.Cliente.Nome)</p>
+                    <p><strong>Corretor:</strong> @Html.DisplayFor(modelItem => item.Corretor.Nome)</p>
+                </div>
+                <div>
+
+                    <a asp-action="Edit" asp-route-id="@item.AgendamentoId" class="price-button m-3">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+
+                    <a asp-action="Delete" asp-route-id="@item.AgendamentoId" class="price-button">
+                        <i class="bi bi-trash3"></i>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    }
+</div>
+</div>

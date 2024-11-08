@@ -12,8 +12,8 @@ using SIPP.Data;
 namespace SIPP.Migrations
 {
     [DbContext(typeof(SIPPDbContext))]
-    [Migration("20241107131212_DeleteAgendamento")]
-    partial class DeleteAgendamento
+    [Migration("20241108152510_Agendamento")]
+    partial class Agendamento
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -223,6 +223,38 @@ namespace SIPP.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("SIPP.Models.Agendamento", b =>
+                {
+                    b.Property<Guid>("AgendamentoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ClienteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CorretorId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateOnly>("DataAge")
+                        .HasColumnType("date");
+
+                    b.Property<TimeOnly>("HoraAge")
+                        .HasColumnType("time");
+
+                    b.Property<Guid>("ImovelId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("AgendamentoId");
+
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("CorretorId");
+
+                    b.HasIndex("ImovelId");
+
+                    b.ToTable("Agendamento");
+                });
+
             modelBuilder.Entity("SIPP.Models.Imagem", b =>
                 {
                     b.Property<Guid>("ImagemId")
@@ -418,6 +450,33 @@ namespace SIPP.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SIPP.Models.Agendamento", b =>
+                {
+                    b.HasOne("SIPP.Models.Pessoa", "Cliente")
+                        .WithMany("AgendamentosCliente")
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SIPP.Models.Pessoa", "Corretor")
+                        .WithMany("AgendamentosCorretor")
+                        .HasForeignKey("CorretorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SIPP.Models.Imovel", "Imovel")
+                        .WithMany()
+                        .HasForeignKey("ImovelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Corretor");
+
+                    b.Navigation("Imovel");
+                });
+
             modelBuilder.Entity("SIPP.Models.Imagem", b =>
                 {
                     b.HasOne("SIPP.Models.Imovel", "Imovel")
@@ -441,6 +500,13 @@ namespace SIPP.Migrations
             modelBuilder.Entity("SIPP.Models.Imovel", b =>
                 {
                     b.Navigation("Imagens");
+                });
+
+            modelBuilder.Entity("SIPP.Models.Pessoa", b =>
+                {
+                    b.Navigation("AgendamentosCliente");
+
+                    b.Navigation("AgendamentosCorretor");
                 });
 #pragma warning restore 612, 618
         }

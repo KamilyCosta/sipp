@@ -51,7 +51,7 @@ namespace SIPP.Controllers
         }
 
 
-        public IActionResult Create()
+        public IActionResult Create(Guid imovelId)
         {
         
             Guid tipoCorretorId = new Guid("A83D62DD-7112-4B7A-9CB0-134AD4ACF74C");
@@ -74,6 +74,9 @@ namespace SIPP.Controllers
             ViewData["ClienteId"] = new SelectList(
                 new List<SelectListItem> { new SelectListItem { Value = userId, Text = "Você (Cliente)" } },
                 "Value", "Text", userId);
+
+            // Passa o ImovelId para a view
+            ViewData["ImovelId"] = imovelId;
 
             return View();
         }
@@ -105,13 +108,11 @@ namespace SIPP.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            
+           
+
+
             return View(agendamento);
         }
-
-
-
-
 
 
 

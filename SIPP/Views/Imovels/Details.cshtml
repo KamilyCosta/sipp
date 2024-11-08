@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Detalhes do Imóvel";
 }
-
+<div class="container mt-4"> 
 <h1>Detalhes do Imóvel:</h1>
 
 <div class="detalhes-container">
@@ -49,18 +49,13 @@
 
         <div class="acoes">
 
-            <a href="@Url.Action("Create", "Pessoas")" class="btn btn-primary">Conhecer imóvel</a>
+            <a href="@Url.Action("Create", "Agendamentoes")" class="btn btn-conhecer">Conhecer imóvel</a>
             <span class="preco">Valor: @Html.DisplayFor(model => model.Valor)</span>
         </div>
     </div>
 </div>
-
-
-
-
-
-
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ImovelId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
 </div>
+
+
+
+

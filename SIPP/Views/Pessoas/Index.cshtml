@@ -3,11 +3,12 @@
 @{
     ViewData["Title"] = "Corretores";
 }
-
+<div class="container m-4"> 
 <h1>Lista de Corretores</h1>
 
 <p>
-    <a asp-action="CreateCorretor">Adicionar Novo Corretor</a>
+    <a asp-action="CreateCorretor" class="btn price-button">Adicionar Novo Corretor</a>
+    
 </p>
 
 <div class="house-container">
@@ -65,8 +66,11 @@
                     </p>
 
                     <a asp-action="Details" asp-route-id="@item.PessoaId" class="price-button ">Ver Detalhes</a>
+                        <a asp-action="Edit" asp-route-id="@item.PessoaId" class="price-button "><i class="bi bi-pencil-square"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.PessoaId" class="price-button "><i class="bi bi-trash3"></i></a>
                 </div>
             </div>
         </div>
     }
+</div>
 </div>
