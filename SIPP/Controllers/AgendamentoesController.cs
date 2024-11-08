@@ -83,19 +83,22 @@ namespace SIPP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AgendamentoId,DataAge,HoraAge,ClienteId,CorretorId")] Agendamento agendamento)
         {
+            
+            ModelState.Remove("Cliente");
+            ModelState.Remove("ClienteId");
+            ModelState.Remove("Corretor");
+            
             if (ModelState.IsValid)
             {
                 agendamento.AgendamentoId = Guid.NewGuid();
 
-               
+                // Pega o Id do AspNetUsers
                 var userId = _userManager.GetUserId(User);
 
-                
-                if (agendamento.ClienteId == Guid.Empty)
-                {
-                    // Se não foi atribuído, define o ClienteId como o UserId do usuário logado
-                    agendamento.ClienteId = Guid.Parse(userId);
-                }
+                // Buscar o cliente (logado) pelo Id recuperado acima
+                var pessoa = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
+
+                agendamento.ClienteId = pessoa.PessoaId;
 
                 _context.Add(agendamento);
                 await _context.SaveChangesAsync();
