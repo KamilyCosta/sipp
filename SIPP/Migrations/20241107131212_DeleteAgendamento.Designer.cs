@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SIPP.Data;
 
@@ -11,9 +12,11 @@ using SIPP.Data;
 namespace SIPP.Migrations
 {
     [DbContext(typeof(SIPPDbContext))]
-    partial class SIPPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241107131212_DeleteAgendamento")]
+    partial class DeleteAgendamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -220,37 +223,6 @@ namespace SIPP.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SIPP.Models.Agendamento", b =>
-                {
-                    b.Property<Guid>("AgendamentoId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ClienteId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CorretorId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateOnly>("DataAge")
-                        .HasColumnType("date");
-
-                    b.Property<TimeOnly>("HoraAge")
-                        .HasColumnType("time");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("AgendamentoId");
-
-                    b.HasIndex("ClienteId");
-
-                    b.HasIndex("CorretorId");
-
-                    b.ToTable("Agendamento");
-                });
-
             modelBuilder.Entity("SIPP.Models.Imagem", b =>
                 {
                     b.Property<Guid>("ImagemId")
@@ -446,25 +418,6 @@ namespace SIPP.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SIPP.Models.Agendamento", b =>
-                {
-                    b.HasOne("SIPP.Models.Pessoa", "Cliente")
-                        .WithMany("AgendamentosCliente")
-                        .HasForeignKey("ClienteId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SIPP.Models.Pessoa", "Corretor")
-                        .WithMany("AgendamentosCorretor")
-                        .HasForeignKey("CorretorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Cliente");
-
-                    b.Navigation("Corretor");
-                });
-
             modelBuilder.Entity("SIPP.Models.Imagem", b =>
                 {
                     b.HasOne("SIPP.Models.Imovel", "Imovel")
@@ -488,13 +441,6 @@ namespace SIPP.Migrations
             modelBuilder.Entity("SIPP.Models.Imovel", b =>
                 {
                     b.Navigation("Imagens");
-                });
-
-            modelBuilder.Entity("SIPP.Models.Pessoa", b =>
-                {
-                    b.Navigation("AgendamentosCliente");
-
-                    b.Navigation("AgendamentosCorretor");
                 });
 #pragma warning restore 612, 618
         }

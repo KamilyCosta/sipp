@@ -1,34 +1,72 @@
-﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+﻿@model IEnumerable<SIPP.Models.Pessoa>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Corretores";
 }
 
-<h1>Index</h1>
+<h1>Lista de Corretores</h1>
 
 <p>
-    <a asp-action="CreateCorretor">Create New</a>
+    <a asp-action="CreateCorretor">Adicionar Novo Corretor</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Dados complementares</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="house-container">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4" style="width: 18rem;">
+                @if (!string.IsNullOrEmpty(item.UrlImagem))
+                {
+                    <img src="@Url.Content(item.UrlImagem)" alt="Imagem de @item.Nome style="width: 300px; height: 200px; object-fit: cover; class="d-block carousel-img" >
+                }
+                else
+                {
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Imagem de @item.Nome" style="height: 200px; object-fit: cover;">
+                }
+
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nome</h5>
+                    <p class="card-text">
+                        <strong>Telefone:</strong> @item.Telefone <br>
+                        <strong>CRECI:</strong> @item.CRECI <br>
+
+                        
+                        <strong>Tempo de Cadastro:</strong>
+                        @if (item.DataCadastro.HasValue)
+                        {
+                          
+                            var dataCadastro = item.DataCadastro.Value.ToDateTime(new TimeOnly(0, 0));
+
+                           
+                            var timeSpan = DateTime.Now - dataCadastro;
+                            string tempoCadastro = string.Empty;
+
+                            if (timeSpan.Days < 30)
+                            {
+                                tempoCadastro = $"{timeSpan.Days} dias";
+                            }
+                            else if (timeSpan.Days < 365)
+                            {
+                                var meses = timeSpan.Days / 30;
+                                tempoCadastro = $"{meses} meses";
+                            }
+                            else
+                            {
+                                var anos = timeSpan.Days / 365;
+                                tempoCadastro = $"{anos} anos";
+                            }
+
+                            @tempoCadastro
+                        }
+                        else
+                        {
+                            <span>Data de cadastro não disponível</span>
+                        }
+                    </p>
+
+                    <a asp-action="Details" asp-route-id="@item.PessoaId" class="price-button ">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

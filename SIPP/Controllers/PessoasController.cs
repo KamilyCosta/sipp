@@ -27,13 +27,23 @@ namespace SIPP.Controllers
 
         // GET: Pessoas
         public async Task<IActionResult> Index()
-        {
-            var sIPPDbContext = _context.Users;
-            return View(await sIPPDbContext.ToListAsync());
-        }
 
-        // GET: Pessoas/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        { 
+                
+                var corretorTipoId = Guid.Parse("A83D62DD-7112-4B7A-9CB0-134AD4ACF74C"); 
+
+                
+                var corretores = await _context.Pessoa
+                                               .Where(p => p.TipoPessoaId == corretorTipoId)
+                                               .ToListAsync();
+
+               
+                return View(corretores);
+            }
+        
+
+            // GET: Pessoas/Details/5
+            public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -281,6 +291,7 @@ namespace SIPP.Controllers
 
             var user = new IdentityUser { UserName = email, Email = email };
             var result = await _userManager.CreateAsync(user, senha);
+            
 
             if (result.Succeeded)
             {

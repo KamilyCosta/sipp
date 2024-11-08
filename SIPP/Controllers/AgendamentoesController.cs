@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,16 +14,20 @@ namespace SIPP.Controllers
     public class AgendamentoesController : Controller
     {
         private readonly SIPPDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public AgendamentoesController(SIPPDbContext context)
+        public AgendamentoesController(SIPPDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
+
 
         // GET: Agendamentoes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Agendamento.ToListAsync());
+            var sIPPDbContext = _context.Agendamento.Include(a => a.Cliente).Include(a => a.Corretor);
+            return View(await sIPPDbContext.ToListAsync());
         }
 
         // GET: Agendamentoes/Details/5
@@ -34,6 +39,8 @@ namespace SIPP.Controllers
             }
 
             var agendamento = await _context.Agendamento
+                .Include(a => a.Cliente)
+                .Include(a => a.Corretor)
                 .FirstOrDefaultAsync(m => m.AgendamentoId == id);
             if (agendamento == null)
             {
@@ -43,28 +50,67 @@ namespace SIPP.Controllers
             return View(agendamento);
         }
 
-        // GET: Agendamentoes/Create
+
         public IActionResult Create()
         {
+        
+            Guid tipoCorretorId = new Guid("A83D62DD-7112-4B7A-9CB0-134AD4ACF74C");
+
+            
+            var corretores = _context.Pessoa
+                .Where(p => p.TipoPessoaId == tipoCorretorId)
+                .Select(p => new SelectListItem
+                {
+                    Value = p.PessoaId.ToString(),
+                    Text = p.Nome
+                })
+                .ToList();
+
+            
+            ViewData["CorretorId"] = new SelectList(corretores, "Value", "Text");
+
+            
+            var userId = _userManager.GetUserId(User);
+            ViewData["ClienteId"] = new SelectList(
+                new List<SelectListItem> { new SelectListItem { Value = userId, Text = "Você (Cliente)" } },
+                "Value", "Text", userId);
+
             return View();
         }
 
-        // POST: Agendamentoes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AgendamentoId,ClienteId,CorretorId,DataAge,HoraAge")] Agendamento agendamento)
+        public async Task<IActionResult> Create([Bind("AgendamentoId,DataAge,HoraAge,ClienteId,CorretorId")] Agendamento agendamento)
         {
             if (ModelState.IsValid)
             {
                 agendamento.AgendamentoId = Guid.NewGuid();
+
+               
+                var userId = _userManager.GetUserId(User);
+
+                
+                if (agendamento.ClienteId == Guid.Empty)
+                {
+                    // Se não foi atribuído, define o ClienteId como o UserId do usuário logado
+                    agendamento.ClienteId = Guid.Parse(userId);
+                }
+
                 _context.Add(agendamento);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            
             return View(agendamento);
         }
+
+
+
+
+
+
 
         // GET: Agendamentoes/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
@@ -79,6 +125,8 @@ namespace SIPP.Controllers
             {
                 return NotFound();
             }
+            ViewData["ClienteId"] = new SelectList(_context.Pessoa, "PessoaId", "PessoaId", agendamento.ClienteId);
+            ViewData["CorretorId"] = new SelectList(_context.Pessoa, "PessoaId", "PessoaId", agendamento.CorretorId);
             return View(agendamento);
         }
 
@@ -87,7 +135,7 @@ namespace SIPP.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("AgendamentoId,ClienteId,CorretorId,DataAge,HoraAge")] Agendamento agendamento)
+        public async Task<IActionResult> Edit(Guid id, [Bind("AgendamentoId,DataAge,HoraAge,ClienteId,CorretorId")] Agendamento agendamento)
         {
             if (id != agendamento.AgendamentoId)
             {
@@ -114,6 +162,8 @@ namespace SIPP.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Pessoa, "PessoaId", "PessoaId", agendamento.ClienteId);
+            ViewData["CorretorId"] = new SelectList(_context.Pessoa, "PessoaId", "PessoaId", agendamento.CorretorId);
             return View(agendamento);
         }
 
@@ -126,6 +176,8 @@ namespace SIPP.Controllers
             }
 
             var agendamento = await _context.Agendamento
+                .Include(a => a.Cliente)
+                .Include(a => a.Corretor)
                 .FirstOrDefaultAsync(m => m.AgendamentoId == id);
             if (agendamento == null)
             {

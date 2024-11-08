@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SIPP.Data;
 
@@ -11,9 +12,11 @@ using SIPP.Data;
 namespace SIPP.Migrations
 {
     [DbContext(typeof(SIPPDbContext))]
-    partial class SIPPDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241107132456_CreateAgendamento")]
+    partial class CreateAgendamento
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -237,10 +240,6 @@ namespace SIPP.Migrations
 
                     b.Property<TimeOnly>("HoraAge")
                         .HasColumnType("time");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AgendamentoId");
 

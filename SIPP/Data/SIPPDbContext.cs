@@ -25,11 +25,21 @@ namespace SIPP.Data
         {
             base.OnModelCreating(modelBuilder);
 
-           
+            modelBuilder.Entity<Agendamento>()
+            .HasOne(a => a.Cliente)
+            .WithMany(p => p.AgendamentosCliente)
+            .HasForeignKey(a => a.ClienteId)
+            .OnDelete(DeleteBehavior.Restrict);  // Dependendo da sua lógica, pode ser Restrict ou Cascade
+
+            // Relacionamento entre Agendamento e Pessoa (corretor)
+            modelBuilder.Entity<Agendamento>()
+                .HasOne(a => a.Corretor)
+                .WithMany(p => p.AgendamentosCorretor)
+                .HasForeignKey(a => a.CorretorId)
+                .OnDelete(DeleteBehavior.Restrict);  // Dependendo da sua lógica, pode ser Restrict ou Cascade
+
         }
-
-
-    
+   
     }
 }
 

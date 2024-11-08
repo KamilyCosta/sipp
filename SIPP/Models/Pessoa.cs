@@ -42,5 +42,8 @@ namespace SIPP.Models
         [NotMapped]
         public string? Senha { get; set; }
 
+        public ICollection<Agendamento>? AgendamentosCliente { get; set; }
+        public ICollection<Agendamento>? AgendamentosCorretor { get; set; }
+
     }
 }
