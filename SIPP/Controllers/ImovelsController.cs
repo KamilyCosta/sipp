@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -8,7 +9,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SIPP.Data;
 using SIPP.Models;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace SIPP.Controllers
 {
@@ -27,16 +27,15 @@ namespace SIPP.Controllers
         public async Task<IActionResult> Index()
         {
             List<Imovel> imoveis = await _context.Imoveis.Include(i => i.Imagens).ToListAsync();
-           
 
+            // Verifica se o usuário está logado e se é um administrador
+            var isAdmin = User.IsInRole("Admin");  // Verifica se o usuário tem o papel de administrador
+            ViewData["IsAdmin"] = isAdmin; // Passa essa informação para a view
 
             return View(imoveis);
         }
 
-        
-
-
-        // GET: Imoveis/Details/5
+        // GET: Imovels/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -45,7 +44,7 @@ namespace SIPP.Controllers
             }
 
             var imovel = await _context.Imoveis
-                .Include(i => i.Imagens) // Inclui as imagens associadas
+                .Include(i => i.Imagens)
                 .FirstOrDefaultAsync(i => i.ImovelId == id);
 
             if (imovel == null)
@@ -53,47 +52,65 @@ namespace SIPP.Controllers
                 return NotFound();
             }
 
+            // Verifica se o usuário está logado
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Redirect("/Identity/Account/Register");
+            }
+
+            var userId = _userManager.GetUserId(User);
+            var pessoa = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
+
+            if (pessoa == null)
+            {
+                return RedirectToAction("Create", "Pessoas");
+            }
+
+            ViewData["PessoaExistente"] = true;
+
+
+            ViewData["ImovelId"] = imovel.ImovelId;
+
             return View(imovel);
         }
 
-
-
-
+        // GET: Imovels/Create
         public IActionResult Create()
         {
             var model = new Imovel();
 
             // Suponha que estas sejam as opções de método de pagamento
             ViewBag.MetodosPagamento = new List<SelectListItem>
-        {
-            new SelectListItem { Value = "Aceita financiamento", Text = "Aceita financiamento" },
-            new SelectListItem { Value = "Não aceita financiamento", Text = "Não aceita financiamento" }
-        };
+            {
+                new SelectListItem { Value = "Aceita financiamento", Text = "Aceita financiamento" },
+                new SelectListItem { Value = "Não aceita financiamento", Text = "Não aceita financiamento" }
+            };
 
             return View(model);
         }
 
-
-
-
         // POST: Imovels/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ImovelId,Endereco,Cidade,QntDormitorios,QntGarragem,Tamanho,TamanhoAreaContuida,MetodoPagamento, Aluguel, Venda,Valor")] Imovel imovel, List<IFormFile> imagens)
+        public async Task<IActionResult> Create([Bind("ImovelId,Endereco,Cidade,QntDormitorios,QntGarragem,Tamanho,TamanhoAreaContuida,MetodoPagamento,Aluguel,Venda,Valor")] Imovel imovel, List<IFormFile> imagens)
         {
             if (ModelState.IsValid)
             {
+                var userId = _userManager.GetUserId(User);
+                var pessoa = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
+
+                if (pessoa == null)
+                {
+                    return RedirectToAction("Create", "Pessoas");
+                }
+
                 imovel.ImovelId = Guid.NewGuid();
 
                 // Adiciona o imóvel ao contexto
                 _context.Add(imovel);
                 await _context.SaveChangesAsync(); // Salva o imóvel para gerar o ID
 
-                int cont = 1;
-
-                // Processa cada imagem
+                // Salva as imagens associadas ao imóvel
                 foreach (var imagem in imagens)
                 {
                     if (imagem.Length > 0)
@@ -101,13 +118,10 @@ namespace SIPP.Controllers
                         try
                         {
                             var fileName = Path.GetFileName(imagem.FileName);
-
                             string extension = Path.GetExtension(fileName);
-
                             string dateNow = DateTime.Now.ToString("yyyy-MM-ddHH-mm-ss.fff");
-
                             string newName = $"{imovel.ImovelId}_{dateNow}{extension}";
-                            
+
                             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", newName);
 
                             // Salva a imagem no sistema de arquivos
@@ -142,7 +156,6 @@ namespace SIPP.Controllers
             return View(imovel);
         }
 
-
         // GET: Imovels/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
@@ -152,7 +165,6 @@ namespace SIPP.Controllers
             }
 
             var imovel = await _context.Imoveis
-              //  .Include(i => i.Imagens) 
                 .FirstOrDefaultAsync(i => i.ImovelId == id);
 
             if (imovel == null)
@@ -176,11 +188,6 @@ namespace SIPP.Controllers
             // Verifica se o ModelState é válido
             if (!ModelState.IsValid)
             {
-                // Logar erros
-                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-                {
-                    Console.WriteLine(error.ErrorMessage);
-                }
                 return View(imovel); // Retorna a view com o modelo para correção
             }
 
@@ -259,9 +266,6 @@ namespace SIPP.Controllers
 
             return RedirectToAction(nameof(Index));
         }
-
-
-
 
         // GET: Imovels/Delete/5
         public async Task<IActionResult> Delete(Guid? id)

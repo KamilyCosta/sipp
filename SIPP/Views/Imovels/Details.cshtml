@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Detalhes do Imóvel";
+    var pessoaExistente = ViewData["PessoaExistente"] as bool?;
 }
 <div class="container mt-4"> 
 <h1>Detalhes do Imóvel:</h1>
@@ -49,7 +50,20 @@
 
         <div class="acoes">
 
-            <a href="@Url.Action("Create", "Agendamentoes")" class="btn btn-conhecer">Conhecer imóvel</a>
+                @if (pessoaExistente == null || pessoaExistente == false)
+                {
+                    <p>Você precisa criar um perfil de pessoa antes de agendar este imóvel</p>
+                    <a href="@Url.Action("Create", "Pessoas")" class="btn btn-primary">Agendar</a>
+                }
+
+                <!-- Se a pessoa existir, exibe a opção de agendar -->
+                @if (pessoaExistente == true)
+                {
+                    <a href="@Url.Action("Create", "Agendamentoes", new { imovelId = ViewData["ImovelId"] })" class="btn btn-primary">Agendar</a>
+                }
+
+            
+
             <span class="preco">Valor: @Html.DisplayFor(model => model.Valor)</span>
         </div>
     </div>

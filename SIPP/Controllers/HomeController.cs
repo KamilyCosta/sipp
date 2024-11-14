@@ -10,21 +10,25 @@ namespace SIPP.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly SIPPDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, SIPPDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public async Task<IActionResult> Index([FromServices] SIPPDbContext context) 
+        public async Task<IActionResult> Index()
         {
-            var imoveis = await context.Imoveis
-                .OrderBy(i => i.ImovelId)
-                .Take(3)
+           
+            var imoveis = await _context.Imoveis
+                .Include(i => i.Imagens) 
+                .Take(3) 
                 .ToListAsync();
 
             return View(imoveis);
         }
+
 
         public IActionResult FaleConosco()
         {

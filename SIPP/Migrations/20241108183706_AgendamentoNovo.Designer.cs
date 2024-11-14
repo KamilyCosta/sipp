@@ -12,8 +12,8 @@ using SIPP.Data;
 namespace SIPP.Migrations
 {
     [DbContext(typeof(SIPPDbContext))]
-    [Migration("20241108152510_Agendamento")]
-    partial class Agendamento
+    [Migration("20241108183706_AgendamentoNovo")]
+    partial class AgendamentoNovo
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -464,7 +464,7 @@ namespace SIPP.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("SIPP.Models.Imovel", "Imovel")
+                    b.HasOne("SIPP.Models.Imovel", "Imovels")
                         .WithMany()
                         .HasForeignKey("ImovelId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -474,7 +474,7 @@ namespace SIPP.Migrations
 
                     b.Navigation("Corretor");
 
-                    b.Navigation("Imovel");
+                    b.Navigation("Imovels");
                 });
 
             modelBuilder.Entity("SIPP.Models.Imagem", b =>

@@ -12,8 +12,8 @@ using SIPP.Data;
 namespace SIPP.Migrations
 {
     [DbContext(typeof(SIPPDbContext))]
-    [Migration("20241108154024_AgendamentoNovo")]
-    partial class AgendamentoNovo
+    [Migration("20241114111031_AlterandoAgendamento")]
+    partial class AlterandoAgendamento
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,7 @@ namespace SIPP.Migrations
                     b.Property<TimeOnly>("HoraAge")
                         .HasColumnType("time");
 
-                    b.Property<Guid?>("ImovelId")
+                    b.Property<Guid>("ImovelId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("AgendamentoId");
@@ -465,8 +465,10 @@ namespace SIPP.Migrations
                         .IsRequired();
 
                     b.HasOne("SIPP.Models.Imovel", "Imovel")
-                        .WithMany()
-                        .HasForeignKey("ImovelId");
+                        .WithMany("Agendamentos")
+                        .HasForeignKey("ImovelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Cliente");
 
@@ -497,6 +499,8 @@ namespace SIPP.Migrations
 
             modelBuilder.Entity("SIPP.Models.Imovel", b =>
                 {
+                    b.Navigation("Agendamentos");
+
                     b.Navigation("Imagens");
                 });
 

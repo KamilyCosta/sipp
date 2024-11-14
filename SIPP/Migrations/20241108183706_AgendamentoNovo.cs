@@ -5,7 +5,7 @@
 namespace SIPP.Migrations
 {
     /// <inheritdoc />
-    public partial class Agendamento : Migration
+    public partial class AgendamentoNovo : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

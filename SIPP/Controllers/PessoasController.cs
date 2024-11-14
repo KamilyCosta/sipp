@@ -1,14 +1,16 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SIPP.Data;
 using SIPP.Models;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace SIPP.Controllers
 {
@@ -17,33 +19,41 @@ namespace SIPP.Controllers
         private readonly SIPPDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
 
-
         public PessoasController(SIPPDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
+        }
 
+        // Verifica se o usuário logado é admin
+        private async Task<bool> IsAdminAsync()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o ID do usuário logado
+            var pessoaLogada = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
+            return pessoaLogada != null && pessoaLogada.TipoPessoaId == Guid.Parse("799237FF-605B-4614-BBA8-6DA107B3FFE4");  // TipoPessoaId do Admin
         }
 
         // GET: Pessoas
         public async Task<IActionResult> Index()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o ID do usuário logado
+            var pessoaLogada = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
 
-        { 
-                
-                var corretorTipoId = Guid.Parse("A83D62DD-7112-4B7A-9CB0-134AD4ACF74C"); 
+            var isAdmin = await IsAdminAsync(); // Verifica se o usuário logado é admin
 
-                
-                var corretores = await _context.Pessoa
-                                               .Where(p => p.TipoPessoaId == corretorTipoId)
-                                               .ToListAsync();
+            var corretorTipoId = Guid.Parse("A83D62DD-7112-4B7A-9CB0-134AD4ACF74C");  // Tipo de corretor
 
-               
-                return View(corretores);
-            }
-        
+            var corretores = await _context.Pessoa
+                                           .Where(p => p.TipoPessoaId == corretorTipoId)
+                                           .ToListAsync();
 
-            // GET: Pessoas/Details/5
-            public async Task<IActionResult> Details(Guid? id)
+            ViewData["IsAdmin"] = isAdmin;
+
+            return View(corretores);
+        }
+
+        // GET: Pessoas/Details/5
+        public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
             {
@@ -61,20 +71,29 @@ namespace SIPP.Controllers
         }
 
         // GET: Pessoas/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            // Verifica se o usuário é admin antes de permitir criar
+            if (!await IsAdminAsync())
+            {
+                return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
+            }
+
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             ViewData["AspNetUserId"] = userId;
             return View();
         }
 
         // POST: Pessoas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PessoaId,Nome,CPF,DataNascimento,CEP,Bairro,Cidade,Rua,Complemento,Numero,Telefone,CRECI,UrlImagem,DataCadastro,UserId")] Pessoa pessoa, IFormFile imagemPerfil)
+        public async Task<IActionResult> Create([Bind("PessoaId,Nome,CPF,DataNascimento,CEP,Bairro,Cidade,Rua,Complemento,Numero,Telefone,CRECI,UrlImagem,DataCadastro,UserId")] Pessoa pessoa, IFormFile? imagemPerfil)
         {
+            if (!await IsAdminAsync())
+            {
+                return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
+            }
+
             if (ModelState.IsValid)
             {
                 // Processa a imagem de perfil, se houver
@@ -104,34 +123,35 @@ namespace SIPP.Controllers
                     }
                 }
 
-                
                 pessoa.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-
+                // Define o tipo de pessoa com base em uma lógica (aqui está fixo como "Cliente" para exemplo)
                 var tipoCliente = await _context.TipoPessoas.FirstOrDefaultAsync(tp => tp.Descricao == "Cliente");
                 if (tipoCliente != null)
                 {
-                    pessoa.TipoPessoaId = tipoCliente.TipoPessoaId; 
+                    pessoa.TipoPessoaId = tipoCliente.TipoPessoaId;  // Associa o tipo de cliente
                 }
-
 
                 pessoa.DataCadastro = DateOnly.FromDateTime(DateTime.Now);
 
-               
                 _context.Add(pessoa);
                 await _context.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(pessoa);
+            return View();
         }
-
-
 
         // GET: Pessoas/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
+            // Verifica se o usuário é admin antes de permitir editar
+            if (!await IsAdminAsync())
+            {
+                return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
+            }
+
             if (id == null)
             {
                 return NotFound();
@@ -140,20 +160,23 @@ namespace SIPP.Controllers
             var pessoa = await _context.Pessoa.FindAsync(id);
             if (pessoa == null)
             {
-                ViewData["AspNetUserId"] = id;
-                //return RedirectToAction("Create");
-                return View("Create");
+                return NotFound();
             }
+
             return View(pessoa);
         }
 
         // POST: Pessoas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, [Bind("PessoaId,Nome,CPF,DataNascimento,CEP,Bairro,Cidade,Rua,Complemento,Numero,Telefone,CRECI,UrlImagem,DataCadastro,UserId")] Pessoa pessoa)
         {
+            // Verifica se o usuário é admin antes de permitir editar
+            if (!await IsAdminAsync())
+            {
+                return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
+            }
+
             if (id != pessoa.PessoaId)
             {
                 return NotFound();
@@ -185,6 +208,12 @@ namespace SIPP.Controllers
         // GET: Pessoas/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
+            // Verifica se o usuário é admin antes de permitir deletar
+            if (!await IsAdminAsync())
+            {
+                return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
+            }
+
             if (id == null)
             {
                 return NotFound();
@@ -205,6 +234,12 @@ namespace SIPP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
+            // Verifica se o usuário é admin antes de permitir deletar
+            if (!await IsAdminAsync())
+            {
+                return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
+            }
+
             var pessoa = await _context.Pessoa.FindAsync(id);
             if (pessoa != null)
             {
@@ -213,11 +248,6 @@ namespace SIPP.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool PessoaExists(Guid id)
-        {
-            return _context.Pessoa.Any(e => e.PessoaId == id);
         }
 
         // CREATE CORRETOR 
@@ -277,7 +307,7 @@ namespace SIPP.Controllers
                 _context.Add(pessoa);
                 await _context.SaveChangesAsync();
 
-                
+
 
                 return RedirectToAction(nameof(Index));
             }
@@ -285,13 +315,15 @@ namespace SIPP.Controllers
             return View(pessoa);
         }
 
+
+
         private async Task<IdentityUser> criarUsuarioDeAcesso(string? email, string? senha)
         {
             // TODO: Implementar a lógica para tratar erros.
 
             var user = new IdentityUser { UserName = email, Email = email };
             var result = await _userManager.CreateAsync(user, senha);
-            
+
 
             if (result.Succeeded)
             {
@@ -305,6 +337,12 @@ namespace SIPP.Controllers
             }
 
             return user;
+        }
+
+
+        private bool PessoaExists(Guid id)
+        {
+            return _context.Pessoa.Any(e => e.PessoaId == id);
         }
     }
 }

@@ -238,7 +238,7 @@ namespace SIPP.Migrations
                     b.Property<TimeOnly>("HoraAge")
                         .HasColumnType("time");
 
-                    b.Property<Guid?>("ImovelId")
+                    b.Property<Guid>("ImovelId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("AgendamentoId");
@@ -462,8 +462,10 @@ namespace SIPP.Migrations
                         .IsRequired();
 
                     b.HasOne("SIPP.Models.Imovel", "Imovel")
-                        .WithMany()
-                        .HasForeignKey("ImovelId");
+                        .WithMany("Agendamentos")
+                        .HasForeignKey("ImovelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Cliente");
 
@@ -494,6 +496,8 @@ namespace SIPP.Migrations
 
             modelBuilder.Entity("SIPP.Models.Imovel", b =>
                 {
+                    b.Navigation("Agendamentos");
+
                     b.Navigation("Imagens");
                 });
 

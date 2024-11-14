@@ -26,7 +26,12 @@ namespace SIPP.Controllers
         // GET: Agendamentoes
         public async Task<IActionResult> Index()
         {
-            var sIPPDbContext = _context.Agendamento.Include(a => a.Cliente).Include(a => a.Corretor);
+
+            var sIPPDbContext = _context.Agendamento
+        .Include(a => a.Cliente)
+        .Include(a => a.Corretor)
+        .Include(a => a.Imovel); 
+
             return View(await sIPPDbContext.ToListAsync());
         }
 
@@ -53,123 +58,89 @@ namespace SIPP.Controllers
 
         public IActionResult Create(Guid imovelId)
         {
-        
+            
             Guid tipoCorretorId = new Guid("A83D62DD-7112-4B7A-9CB0-134AD4ACF74C");
 
-            
+           
             var corretores = _context.Pessoa
-                .Where(p => p.TipoPessoaId == tipoCorretorId)
+                .Where(p => p.TipoPessoaId == tipoCorretorId)  
                 .Select(p => new SelectListItem
                 {
                     Value = p.PessoaId.ToString(),
                     Text = p.Nome
                 })
-                .ToList();
+                .ToList();  
 
             
             ViewData["CorretorId"] = new SelectList(corretores, "Value", "Text");
 
-            
             var userId = _userManager.GetUserId(User);
+
+            
             ViewData["ClienteId"] = new SelectList(
-                new List<SelectListItem> { new SelectListItem { Value = userId, Text = "Você (Cliente)" } },
+                new List<SelectListItem> {
+            new SelectListItem { Value = userId, Text = "Você (Cliente)" }
+                },
                 "Value", "Text", userId);
 
-            // Passa o ImovelId para a view
+            var imovel = _context.Imoveis.FirstOrDefault(i => i.ImovelId == imovelId);
             ViewData["ImovelId"] = imovelId;
 
             return View();
         }
 
 
+
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AgendamentoId,DataAge,HoraAge,ClienteId,CorretorId")] Agendamento agendamento)
+        public async Task<IActionResult> Create([Bind("AgendamentoId,DataAge,HoraAge,ClienteId,CorretorId,ImovelId")] Agendamento agendamento)
         {
             
             ModelState.Remove("Cliente");
             ModelState.Remove("ClienteId");
             ModelState.Remove("Corretor");
             
+
             if (ModelState.IsValid)
             {
+                
                 agendamento.AgendamentoId = Guid.NewGuid();
 
-                // Pega o Id do AspNetUsers
+                
                 var userId = _userManager.GetUserId(User);
 
-                // Buscar o cliente (logado) pelo Id recuperado acima
+               
                 var pessoa = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
 
+
+                
                 agendamento.ClienteId = pessoa.PessoaId;
+
+                
+                var corretor = await _context.Pessoa.FirstOrDefaultAsync(p => p.PessoaId == agendamento.CorretorId);
+
+                
+                agendamento.Corretor = corretor;
+
+                
+                var imovel = await _context.Imoveis.FirstOrDefaultAsync(i => i.ImovelId == agendamento.ImovelId);
+
+                agendamento.Imovel = imovel;
 
                 _context.Add(agendamento);
                 await _context.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
 
-           
-
-
             return View(agendamento);
         }
 
 
+        
+        
 
-        // GET: Agendamentoes/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var agendamento = await _context.Agendamento.FindAsync(id);
-            if (agendamento == null)
-            {
-                return NotFound();
-            }
-            ViewData["ClienteId"] = new SelectList(_context.Pessoa, "PessoaId", "PessoaId", agendamento.ClienteId);
-            ViewData["CorretorId"] = new SelectList(_context.Pessoa, "PessoaId", "PessoaId", agendamento.CorretorId);
-            return View(agendamento);
-        }
-
-        // POST: Agendamentoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("AgendamentoId,DataAge,HoraAge,ClienteId,CorretorId")] Agendamento agendamento)
-        {
-            if (id != agendamento.AgendamentoId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(agendamento);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AgendamentoExists(agendamento.AgendamentoId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ClienteId"] = new SelectList(_context.Pessoa, "PessoaId", "PessoaId", agendamento.ClienteId);
-            ViewData["CorretorId"] = new SelectList(_context.Pessoa, "PessoaId", "PessoaId", agendamento.CorretorId);
-            return View(agendamento);
-        }
 
         // GET: Agendamentoes/Delete/5
         public async Task<IActionResult> Delete(Guid? id)

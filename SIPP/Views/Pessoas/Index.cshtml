@@ -2,75 +2,79 @@
 
 @{
     ViewData["Title"] = "Corretores";
+    var isAdmin = ViewData["IsAdmin"] as bool? ?? false;  // Verifica se é admin
 }
-<div class="container m-4"> 
-<h1>Lista de Corretores</h1>
 
-<p>
-    <a asp-action="CreateCorretor" class="btn price-button">Adicionar Novo Corretor</a>
-    
-</p>
+<div class="container m-4">
+    <h1>Lista de Corretores</h1>
 
-<div class="house-container">
-    @foreach (var item in Model)
+    @if (isAdmin)
     {
-        <div class="col-md-4">
-            <div class="card mb-4" style="width: 18rem;">
-                @if (!string.IsNullOrEmpty(item.UrlImagem))
-                {
-                    <img src="@Url.Content(item.UrlImagem)" alt="Imagem de @item.Nome style="width: 300px; height: 200px; object-fit: cover; class="d-block carousel-img" >
-                }
-                else
-                {
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Imagem de @item.Nome" style="height: 200px; object-fit: cover;">
-                }
+        <a asp-action="CreateCorretor" class="btn price-button">Adicionar Novo Corretor</a>
+    }
 
-                <div class="card-body">
-                    <h5 class="card-title">@item.Nome</h5>
-                    <p class="card-text">
-                        <strong>Telefone:</strong> @item.Telefone <br>
-                        <strong>CRECI:</strong> @item.CRECI <br>
+    <div class="house-container">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4" style="width: 18rem;">
+                    @if (!string.IsNullOrEmpty(item.UrlImagem))
+                    {
+                        <img src="@Url.Content(item.UrlImagem)" alt="Imagem de @item.Nome style=" width: 300px; height: 200px; object-fit: cover; class="d-block carousel-img">
 
-                        
-                        <strong>Tempo de Cadastro:</strong>
-                        @if (item.DataCadastro.HasValue)
-                        {
-                          
-                            var dataCadastro = item.DataCadastro.Value.ToDateTime(new TimeOnly(0, 0));
+                    }
+                    else
+                    {
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Imagem de @item.Nome" style="height: 200px; object-fit: cover;">
+                    }
 
-                           
-                            var timeSpan = DateTime.Now - dataCadastro;
-                            string tempoCadastro = string.Empty;
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Nome</h5>
+                        <p class="card-text">
+                            <strong>Telefone:</strong> @item.Telefone <br>
+                            <strong>CRECI:</strong> @item.CRECI <br>
 
-                            if (timeSpan.Days < 30)
+                            <strong>Tempo de Cadastro:</strong>
+                            @if (item.DataCadastro.HasValue)
                             {
-                                tempoCadastro = $"{timeSpan.Days} dias";
-                            }
-                            else if (timeSpan.Days < 365)
-                            {
-                                var meses = timeSpan.Days / 30;
-                                tempoCadastro = $"{meses} meses";
+                                var dataCadastro = item.DataCadastro.Value.ToDateTime(new TimeOnly(0, 0));
+                                var timeSpan = DateTime.Now - dataCadastro;
+                                string tempoCadastro = string.Empty;
+
+                                if (timeSpan.Days < 30)
+                                {
+                                    tempoCadastro = $"{timeSpan.Days} dias";
+                                }
+                                else if (timeSpan.Days < 365)
+                                {
+                                    var meses = timeSpan.Days / 30;
+                                    tempoCadastro = $"{meses} meses";
+                                }
+                                else
+                                {
+                                    var anos = timeSpan.Days / 365;
+                                    tempoCadastro = $"{anos} anos";
+                                }
+
+                                @tempoCadastro
                             }
                             else
                             {
-                                var anos = timeSpan.Days / 365;
-                                tempoCadastro = $"{anos} anos";
+                                <span>Data de cadastro não disponível</span>
                             }
+                        </p>
 
-                            @tempoCadastro
-                        }
-                        else
+                        <a asp-action="Details" asp-route-id="@item.PessoaId" class="price-button ">Ver Detalhes</a>
+                        <div class="justify-content mt-4">
+                        @if (isAdmin)
                         {
-                            <span>Data de cadastro não disponível</span>
+                            <a asp-action="Edit" asp-route-id="@item.PessoaId" class="price-button "><i class="bi bi-pencil-square"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.PessoaId" class="price-button "><i class="bi bi-trash3"></i></a>
                         }
-                    </p>
-
-                    <a asp-action="Details" asp-route-id="@item.PessoaId" class="price-button ">Ver Detalhes</a>
-                        <a asp-action="Edit" asp-route-id="@item.PessoaId" class="price-button "><i class="bi bi-pencil-square"></i></a>
-                        <a asp-action="Delete" asp-route-id="@item.PessoaId" class="price-button "><i class="bi bi-trash3"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
 </div>
