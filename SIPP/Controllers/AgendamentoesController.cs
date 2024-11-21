@@ -23,17 +23,81 @@ namespace SIPP.Controllers
         }
 
 
+
         // GET: Agendamentoes
         public async Task<IActionResult> Index()
         {
+            // Obtém o ID do usuário logado
+            var userId = _userManager.GetUserId(User);
 
-            var sIPPDbContext = _context.Agendamento
-        .Include(a => a.Cliente)
-        .Include(a => a.Corretor)
-        .Include(a => a.Imovel); 
+            // Verifica se o usuário está logado
+            if (userId == null)
+            {
+                // Se não estiver logado, redireciona para a página de login
+                return Redirect("https://localhost:7061/Identity/Account/Login");
+            }
 
-            return View(await sIPPDbContext.ToListAsync());
+            // Obtém a pessoa associada ao usuário logado (se existir)
+            var pessoa = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
+
+            // Verifique o TipoPessoaId para determinar se é Admin ou Corretor
+            Guid tipoAdminId = new Guid("799237FF-605B-4614-BBA8-6DA107B3FFE4");
+            Guid tipoCorretorId = new Guid("A83D62DD-7112-4B7A-9CB0-134AD4ACF74C");
+
+            bool isAdmin = false;
+            bool isCorretor = false;
+
+            if (pessoa != null)
+            {
+                isAdmin = pessoa.TipoPessoaId == tipoAdminId;
+                isCorretor = pessoa.TipoPessoaId == tipoCorretorId;
+            }
+            else
+            {
+                // Verifique se o usuário logado é admin ou corretor diretamente com o tipo do usuário
+                var user = await _userManager.GetUserAsync(User);
+                isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
+                isCorretor = await _userManager.IsInRoleAsync(user, "Corretor");
+            }
+
+            // Consulta todos os agendamentos
+            IQueryable<Agendamento> agendamentosQuery = _context.Agendamento
+                .Include(a => a.Cliente)
+                .Include(a => a.Corretor)
+                .Include(a => a.Imovel);
+
+            // Se o usuário for admin ou corretor, exibe todos os agendamentos
+            if (isAdmin || isCorretor)
+            {
+                return View(await agendamentosQuery.ToListAsync());
+            }
+            else
+            {
+                if (pessoa == null)
+                {
+                    ViewBag.Message = "Você não tem um agendamento registrado. Realize um agendamento em nossos imóveis!";
+                    return View(new List<Agendamento>());
+                }
+
+                agendamentosQuery = agendamentosQuery.Where(a => a.ClienteId == pessoa.PessoaId);
+                var agendamentos = await agendamentosQuery.ToListAsync();
+
+                if (!agendamentos.Any())
+                {
+                    ViewBag.Message = "Você ainda não tem agendamentos. Realize um agendamento em nossos imóveis!";
+                }
+
+                return View(agendamentos);
+            }
         }
+
+
+
+
+
+
+
+
 
         // GET: Agendamentoes/Details/5
         public async Task<IActionResult> Details(Guid? id)

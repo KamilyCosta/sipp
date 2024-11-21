@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -23,13 +24,24 @@ namespace SIPP.Controllers
             _userManager = userManager;
         }
 
+        private async Task<bool> IsAdminAsync()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o ID do usuário logado
+            var pessoaLogada = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
+            return pessoaLogada != null && pessoaLogada.TipoPessoaId == Guid.Parse("799237FF-605B-4614-BBA8-6DA107B3FFE4");  // TipoPessoaId do Admin
+        }
+
         // GET: Imovels
         public async Task<IActionResult> Index()
         {
             List<Imovel> imoveis = await _context.Imoveis.Include(i => i.Imagens).ToListAsync();
 
-            // Verifica se o usuário está logado e se é um administrador
-            var isAdmin = User.IsInRole("Admin");  // Verifica se o usuário tem o papel de administrador
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtém o ID do usuário logado
+            var pessoaLogada = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
+
+            var isAdmin = await IsAdminAsync(); // Verifica se o usuário logado é admin
+
+            
             ViewData["IsAdmin"] = isAdmin; // Passa essa informação para a view
 
             return View(imoveis);
@@ -165,8 +177,10 @@ namespace SIPP.Controllers
             }
 
             var imovel = await _context.Imoveis
-                .FirstOrDefaultAsync(i => i.ImovelId == id);
+        .Include(i => i.Imagens) // Garante que as imagens serão carregadas com o imóvel
+        .FirstOrDefaultAsync(i => i.ImovelId == id);
 
+           
             if (imovel == null)
             {
                 return NotFound();
@@ -204,18 +218,19 @@ namespace SIPP.Controllers
                         var imagem = await _context.Imagens.FindAsync(imagemId);
                         if (imagem != null)
                         {
-                            // Remove o arquivo do sistema de arquivos
                             var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", imagem.Url.TrimStart('/'));
                             if (System.IO.File.Exists(filePath))
                             {
                                 System.IO.File.Delete(filePath);
                             }
 
-                            // Remove a imagem do banco de dados
                             _context.Imagens.Remove(imagem);
                         }
                     }
                 }
+
+
+
 
                 // Processa e adiciona novas imagens
                 if (novasImagens != null && novasImagens.Any())

@@ -20,7 +20,7 @@ namespace SIPP.Models
         // Navegação para as imagens
         public virtual List<Imagem> Imagens { get; set; } = new List<Imagem>();
 
-        public ICollection<Agendamento> Agendamentos { get; set; }
+        public ICollection<Agendamento>? Agendamentos { get; set; }
 
     }
 }

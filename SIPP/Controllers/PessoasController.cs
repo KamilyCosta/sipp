@@ -11,6 +11,7 @@ using SIPP.Data;
 using SIPP.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using System.Reflection.PortableExecutable;
 
 namespace SIPP.Controllers
 {
@@ -74,10 +75,10 @@ namespace SIPP.Controllers
         public async Task<IActionResult> Create()
         {
             // Verifica se o usuário é admin antes de permitir criar
-            if (!await IsAdminAsync())
-            {
-                return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
-            }
+            //if (!await IsAdminAsync())
+            //{
+            //    return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
+            //}
 
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             ViewData["AspNetUserId"] = userId;
@@ -89,10 +90,10 @@ namespace SIPP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PessoaId,Nome,CPF,DataNascimento,CEP,Bairro,Cidade,Rua,Complemento,Numero,Telefone,CRECI,UrlImagem,DataCadastro,UserId")] Pessoa pessoa, IFormFile? imagemPerfil)
         {
-            if (!await IsAdminAsync())
-            {
-                return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
-            }
+           // if (!await IsAdminAsync())
+            //{
+              //  return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
+            //}
 
             if (ModelState.IsValid)
             {
@@ -157,6 +158,8 @@ namespace SIPP.Controllers
                 return NotFound();
             }
 
+            
+
             var pessoa = await _context.Pessoa.FindAsync(id);
             if (pessoa == null)
             {
@@ -169,25 +172,62 @@ namespace SIPP.Controllers
         // POST: Pessoas/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("PessoaId,Nome,CPF,DataNascimento,CEP,Bairro,Cidade,Rua,Complemento,Numero,Telefone,CRECI,UrlImagem,DataCadastro,UserId")] Pessoa pessoa)
+        public async Task<IActionResult> Edit(Guid id, [Bind("PessoaId,Nome,CPF,DataNascimento,CEP,Bairro,Cidade,Rua,Complemento,Numero,Telefone,CRECI,UrlImagem,DataCadastro,UserId,Email,TipoPessoaId")] Pessoa pessoa, IFormFile UrlImagem, bool removerImagem)
         {
-            // Verifica se o usuário é admin antes de permitir editar
-            if (!await IsAdminAsync())
-            {
-                return Forbid(); // Retorna uma resposta 403 caso o usuário não seja admin
-            }
-
+            // Verifica se o ID corresponde
             if (id != pessoa.PessoaId)
             {
                 return NotFound();
             }
-
+          
+            // Verifica se o ModelState é válido
             if (ModelState.IsValid)
             {
                 try
                 {
+                    Pessoa? pessoaUpdate = _context.Pessoa.AsNoTracking().FirstOrDefault(p => p.PessoaId == id);
+
+                    pessoa.TipoPessoaId = pessoaUpdate.TipoPessoaId;
+                    pessoa.Email = pessoaUpdate.Email;
+
+                    _context.Update(pessoa);
+
+                    // Caso o usuário tenha marcado o checkbox para remover a imagem
+                    if (removerImagem)
+                    {
+                        if (!string.IsNullOrEmpty(pessoa.UrlImagem))
+                        {
+                            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", pessoa.UrlImagem.TrimStart('/'));
+                            if (System.IO.File.Exists(filePath))
+                            {
+                                System.IO.File.Delete(filePath);
+                            }
+
+                            pessoa.UrlImagem = null; // Limpar URL da imagem no banco
+                        }
+                    }
+
+                    // Verifica se foi enviado um novo arquivo de imagem
+                    if (UrlImagem != null && UrlImagem.Length > 0)
+                    {
+                        // Gera o nome do arquivo e o caminho completo
+                        var fileName = Path.GetFileName(UrlImagem.FileName);
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "img", fileName);
+
+                        // Salva o arquivo no diretório
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await UrlImagem.CopyToAsync(stream);
+                        }
+
+                        // Atualiza a URL da imagem no banco
+                        pessoa.UrlImagem = $"/img/{fileName}";
+                    }
+
+                    // Atualiza a pessoa no banco
                     _context.Update(pessoa);
                     await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -200,11 +240,16 @@ namespace SIPP.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
+
+            // Se o ModelState não for válido, retorna a view
             return View(pessoa);
         }
 
+
+
+
+        // GET: Pessoas/Delete/5
         // GET: Pessoas/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
@@ -226,9 +271,35 @@ namespace SIPP.Controllers
                 return NotFound();
             }
 
-            return View(pessoa);
+            // Verifica se a pessoa é um corretor e se ela tem agendamentos
+            var agendamentos = await _context.Agendamento
+                .Where(a => a.CorretorId == pessoa.PessoaId)
+                .ToListAsync();
+
+            if (agendamentos.Any())
+            {
+                // Atribui um corretor padrão para os agendamentos
+                Guid corretorPadraoId = new Guid("2211EFDE-CF0F-419C-1290-08DCFF1DCA53"); // ID do corretor padrão
+
+                // Atualiza os agendamentos, atribuindo o CorretorId para o corretor padrão
+                foreach (var agendamento in agendamentos)
+                {
+                    agendamento.CorretorId = corretorPadraoId;
+                }
+
+                await _context.SaveChangesAsync();
+            }
+
+            // Após atualizar os agendamentos, exclui a pessoa (corretor)
+            _context.Pessoa.Remove(pessoa);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
+
+        // POST: Pessoas/Delete/5
+        // POST: Pessoas/Delete/5
         // POST: Pessoas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -241,14 +312,42 @@ namespace SIPP.Controllers
             }
 
             var pessoa = await _context.Pessoa.FindAsync(id);
-            if (pessoa != null)
+            if (pessoa == null)
             {
-                _context.Pessoa.Remove(pessoa);
+                return NotFound();
             }
 
+            // Verifica se a pessoa está sendo referenciada por agendamentos
+            var agendamentos = _context.Agendamento.Where(a => a.CorretorId == pessoa.PessoaId).ToList();
+
+            // Se a pessoa a ser excluída é um corretor e tem agendamentos, atribui os agendamentos a outro corretor
+            if (agendamentos.Any())
+            {
+                // Aqui você deve definir um corretor válido para transferir os agendamentos
+                // Se você tem um corretor padrão, pode usar o ID dele. Exemplo:
+                Guid novoCorretorId = new Guid("2211EFDE-CF0F-419C-1290-08DCFF1DCA53");  // Substitua pelo ID real de um corretor válido
+
+                // Atualizar os agendamentos, definindo o novo CorretorId
+                foreach (var agendamento in agendamentos)
+                {
+                    agendamento.CorretorId = novoCorretorId;  // Atribui o novo corretor aos agendamentos
+                }
+
+                // Salva as alterações nos agendamentos
+                await _context.SaveChangesAsync();
+            }
+
+            // Exclui a pessoa
+            _context.Pessoa.Remove(pessoa);
+
+            // Salva as alterações no banco
             await _context.SaveChangesAsync();
+
+            // Redireciona para a lista de pessoas
             return RedirectToAction(nameof(Index));
         }
+
+
 
         // CREATE CORRETOR 
         [HttpGet]
@@ -316,7 +415,6 @@ namespace SIPP.Controllers
         }
 
 
-
         private async Task<IdentityUser> criarUsuarioDeAcesso(string? email, string? senha)
         {
             // TODO: Implementar a lógica para tratar erros.
@@ -344,5 +442,7 @@ namespace SIPP.Controllers
         {
             return _context.Pessoa.Any(e => e.PessoaId == id);
         }
+
+        
     }
 }

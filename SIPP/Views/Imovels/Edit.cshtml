@@ -70,7 +70,8 @@
                     foreach (var imagem in Model.Imagens)
                     {
                         <div class="m-1 position-relative">
-                            <img src="@Url.Content(imagem.Url)" class="img-thumbnail" alt="Imagem de @Model.Endereco" style="width: 150px; height: auto;">
+                                
+                            <img src="@imagem.Url" class="img-thumbnail" alt="Imagem de @Model.Endereco" style="width: 150px; height: auto;">
                             <input type="checkbox" name="removerImagens" value="@imagem.ImagemId" class="position-absolute top-0 end-0" />
                             <span class="badge bg-danger" style="cursor: pointer;" title="Remover imagem">X</span>
                         </div>

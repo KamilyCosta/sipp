@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Agendamentoes\NotLoggedIn.cshtml" />
     <Content Remove="Views\Home\Agendamento.cshtml" />
     <Content Remove="Views\Home\Casa1.cshtml" />
     <Content Remove="Views\Home\Corretores.cshtml" />
