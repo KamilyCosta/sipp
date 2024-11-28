@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp-tentativa3\\sipp\\sipp\\sipp\\controllers\\imovelscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\controllers\\imovelscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp-tentativa3\\sipp\\sipp\\sipp\\views\\pessoas\\createcorretor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\views\\pessoas\\createcorretor.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp-tentativa3\\sipp\\sipp\\sipp\\controllers\\pessoascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\controllers\\pessoascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp-tentativa3\\sipp\\sipp\\sipp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp-tentativa3\\sipp\\sipp\\sipp\\views\\agendamentoes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\views\\agendamentoes\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp-tentativa3\\sipp\\sipp\\sipp\\controllers\\agendamentoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\controllers\\agendamentoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp-tentativa3\\sipp\\sipp\\sipp\\views\\agendamentoes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\views\\agendamentoes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|c:\\users\\aluno\\desktop\\sipp-tentativa3\\sipp\\sipp\\sipp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{3480201E-7533-4E72-99B1-5AF6FCD631EC}|SIPP\\SIPP.csproj|solutionrelative:sipp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,59 +30,68 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PessoasController.cs",
-              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Controllers\\PessoasController.cs",
-              "RelativeDocumentMoniker": "SIPP\\Controllers\\PessoasController.cs",
-              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Controllers\\PessoasController.cs",
-              "RelativeToolTip": "SIPP\\Controllers\\PessoasController.cs",
-              "ViewState": "AQIAAFUAAAAAAAAAAAAlwF8AAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T18:35:59.335Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ImovelsController.cs",
-              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Controllers\\ImovelsController.cs",
-              "RelativeDocumentMoniker": "SIPP\\Controllers\\ImovelsController.cs",
-              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Controllers\\ImovelsController.cs",
-              "RelativeToolTip": "SIPP\\Controllers\\ImovelsController.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAkwEsAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T16:56:29.636Z",
+              "Title": "CreateCorretor.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Views\\Pessoas\\CreateCorretor.cshtml",
+              "RelativeDocumentMoniker": "SIPP\\Views\\Pessoas\\CreateCorretor.cshtml",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Views\\Pessoas\\CreateCorretor.cshtml",
+              "RelativeToolTip": "SIPP\\Views\\Pessoas\\CreateCorretor.cshtml",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAFMAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T18:26:15.693Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Views\\Agendamentoes\\Index.cshtml",
-              "RelativeDocumentMoniker": "SIPP\\Views\\Agendamentoes\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Views\\Agendamentoes\\Index.cshtml",
-              "RelativeToolTip": "SIPP\\Views\\Agendamentoes\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAAGAAAA",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "SIPP\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "SIPP\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAADsAAAA8AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-21T16:46:50.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-28T18:22:23.117Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "SIPP\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "SIPP\\wwwroot\\js\\site.js",
+              "ViewState": "AQIAACAAAAAAAAAAAAAgwEEAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-11-28T17:41:26.816Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Views\\Agendamentoes\\Create.cshtml",
+              "RelativeDocumentMoniker": "SIPP\\Views\\Agendamentoes\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Views\\Agendamentoes\\Create.cshtml",
+              "RelativeToolTip": "SIPP\\Views\\Agendamentoes\\Create.cshtml",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAACoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-28T16:56:29.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AgendamentoesController.cs",
               "DocumentMoniker": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Controllers\\AgendamentoesController.cs",
               "RelativeDocumentMoniker": "SIPP\\Controllers\\AgendamentoesController.cs",
               "ToolTip": "C:\\Users\\Aluno\\Desktop\\SIPP-tentativa3\\SIPP\\SIPP\\SIPP\\Controllers\\AgendamentoesController.cs",
               "RelativeToolTip": "SIPP\\Controllers\\AgendamentoesController.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAgwC8AAAAkAAAA",
+              "ViewState": "AQIAAK8AAAAAAAAAAAAAAL0AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T16:14:02.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T16:14:02.069Z"
             }
           ]
         }

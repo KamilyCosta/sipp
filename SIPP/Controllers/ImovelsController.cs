@@ -68,17 +68,17 @@ namespace SIPP.Controllers
             if (!User.Identity.IsAuthenticated)
             {
                 return Redirect("/Identity/Account/Register");
-            }
+           }
 
             var userId = _userManager.GetUserId(User);
             var pessoa = await _context.Pessoa.FirstOrDefaultAsync(p => p.UserId == userId);
 
-            if (pessoa == null)
-            {
-                return RedirectToAction("Create", "Pessoas");
+           if (pessoa == null)
+           {
+               return RedirectToAction("Create", "Pessoas");
             }
 
-            ViewData["PessoaExistente"] = true;
+           ViewData["PessoaExistente"] = true;
 
 
             ViewData["ImovelId"] = imovel.ImovelId;

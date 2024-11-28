@@ -122,7 +122,7 @@ namespace SIPP.Controllers
 
         public IActionResult Create(Guid imovelId)
         {
-            
+
             Guid tipoCorretorId = new Guid("A83D62DD-7112-4B7A-9CB0-134AD4ACF74C");
 
            
@@ -160,11 +160,44 @@ namespace SIPP.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AgendamentoId,DataAge,HoraAge,ClienteId,CorretorId,ImovelId")] Agendamento agendamento)
         {
-            
+
             ModelState.Remove("Cliente");
             ModelState.Remove("ClienteId");
             ModelState.Remove("Corretor");
-            
+            ModelState.Remove("Imovel");
+
+
+            // Verifique se a data é válida (segunda a sábado)
+            if (agendamento.DataAge.DayOfWeek == DayOfWeek.Sunday)
+            {
+                ModelState.AddModelError("DataAge", "Não é permitido agendar no domingo.");
+            }
+
+            // Verifique se o horário está dentro do intervalo permitido (09:00 - 18:00)
+            var hora = agendamento.HoraAge.Hour;
+            if (hora < 9 || hora >= 18)
+            {
+                ModelState.AddModelError("HoraAge", "O horário permitido é entre 09:00 e 18:00.");
+            }
+
+            // Verifica se já existe um agendamento para o mesmo imóvel, data e horário
+            var agendamentoExistente = await _context.Agendamento
+                .Where(a => a.ImovelId == agendamento.ImovelId &&
+                            a.DataAge == agendamento.DataAge &&
+                            a.HoraAge == agendamento.HoraAge)
+                .FirstOrDefaultAsync();
+
+            if (agendamentoExistente != null)
+            {
+                // Se já existir um agendamento, adiciona um erro de validação
+                ModelState.AddModelError("DataHoraAge", "Já existe um agendamento para este imóvel no mesmo horário.");
+                return View(agendamento); // Retorna à tela de criação com o erro
+            }
+
+
+
+
+
 
             if (ModelState.IsValid)
             {

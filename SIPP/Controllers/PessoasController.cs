@@ -83,6 +83,8 @@ namespace SIPP.Controllers
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             ViewData["AspNetUserId"] = userId;
             return View();
+
+
         }
 
         // POST: Pessoas/Create

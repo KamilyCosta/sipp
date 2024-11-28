@@ -28,4 +28,40 @@
     updateCarousel();
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Limitar a data para segunda a sábado
+        var dateInput = document.getElementById("DataAge");
+        dateInput.addEventListener("input", function () {
+            var dateValue = new Date(dateInput.value);
+            var dayOfWeek = dateValue.getUTCDay();
+
+            // Verificar se é domingo (0)
+            if (dayOfWeek === 0) {
+                alert("Não é permitido agendar no domingo. Por favor, escolha uma data de segunda a sábado.");
+                dateInput.setCustomValidity("Data inválida");
+            } else {
+                dateInput.setCustomValidity(""); // Limpa a validação
+            }
+        });
+
+        // Limitar o horário para horários específicos (por exemplo, entre 09:00 e 18:00)
+        var timeInput = document.getElementById("HoraAge");
+        timeInput.addEventListener("input", function () {
+            var timeValue = timeInput.value;
+            var timeParts = timeValue.split(":");
+            var hour = parseInt(timeParts[0], 10);
+
+            // Se o horário for antes das 09:00 ou depois das 18:00, exibe um alerta
+            if (hour < 9 || hour >= 18) {
+                alert("O horário permitido é entre 09:00 e 18:00.");
+                timeInput.setCustomValidity("Horário inválido");
+            } else {
+                timeInput.setCustomValidity(""); // Limpa a validação
+            }
+        });
+    });
+
+
+    
 </script>

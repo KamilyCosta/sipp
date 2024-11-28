@@ -63,11 +63,7 @@
                 <input asp-for="Telefone" class="form-control" />
                 <span asp-validation-for="Telefone" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CRECI" class="control-label"></label>
-                <input asp-for="CRECI" class="form-control" />
-                <span asp-validation-for="CRECI" class="text-danger"></span>
-            </div>
+          
 
             <div class="form-group">
                 <label>Selecionar Imagem:</label>
@@ -80,11 +76,7 @@
                 <input asp-for="DataCadastro" class="form-control" type="date" />
                 <span asp-validation-for="DataCadastro" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="UserId" class="control-label"></label>
-                <input asp-for="UserId" class="form-control" value="@IdDoMal" readonly />
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
+            
          
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
